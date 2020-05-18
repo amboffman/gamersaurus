@@ -31,9 +31,9 @@ function App() {
         <div>
           <Navbar />
           <Switch>
-            <ProtectedRoute exact path="/">
+            <Route exact path="/">
               <Home />
-            </ProtectedRoute>
+            </Route>
             <Route exact path="/login">
               <Login />
             </Route>
