@@ -29,9 +29,9 @@ const UserSchema = new Schema({
   favorites: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Favorite"
-    }
-  ]
+      ref: "Favorite",
+    },
+  ],
 });
 
 // Execute before each user.save() call
