@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import GameInfo from "./pages/GameInfo";
+import Search from "./pages/Search";
 import Navbar from "./components/Navbar";
 
 function ProtectedRoute({ children, ...rest }) {
@@ -37,6 +39,12 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/gameinfo">
+              <GameInfo />
+            </Route>
+            <Route exact path="/search">
+              <Search />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
