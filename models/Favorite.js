@@ -9,7 +9,7 @@ const FavoriteSchema = new Schema({
   name: {
     type: String,
   },
-  Background_image: {
+  backgroundImage: {
     type: String,
   },
 });
