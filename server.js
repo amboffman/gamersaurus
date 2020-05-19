@@ -7,7 +7,7 @@ const initDb = require("./config/initDb");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
 const errorMiddleware = require("./routes/errorMiddleware");
-const igdbRouter = require("./controller/igdb");
+const igdbRouter = require("./controllers/igdb");
 
 const PORT = process.env.PORT || 3001;
 
