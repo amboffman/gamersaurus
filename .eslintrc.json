@@ -24,7 +24,6 @@
     "no-multiple-empty-lines":"error",
     "no-unused-vars": "error",
     "no-var": "error",
-    "camelcase": "error",
     "indent": ["error", 2],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
