@@ -11,7 +11,7 @@ router.get("/igdbgames", (req, res) => {
       Accept: "application/json",
       "user-key": process.env.API_Key,
     },
-    data: "fields *; limit 1; sort popularity desc;",
+    data: "fields *; sort popularity desc;",
   })
     .then((response) => {
       const igdbData = createGameFromIGDBData(response.data);
