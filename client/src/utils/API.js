@@ -27,19 +27,9 @@ export default {
     return axios.delete(`/api/delete_user_favorite/${id}`);
   },
     
-  trendingGames:(searchType) => {
+  fetchGames:(searchType) => {
     return axios.get("api/igdbgames", {
       params: { q: searchType },
-    });
-  },
-  comingSoonGames:(searchQuery) => {
-    return axios.get("api/igdbgames", {
-      params: { q: searchQuery },
-    });
-  },
-  recentReleaseGames:(search) => {
-    return axios.get("api/igdbgames", {
-      params: { q: search },
     });
   }
 };
