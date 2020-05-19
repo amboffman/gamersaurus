@@ -3,12 +3,16 @@ import { useHistory } from "react-router-dom";
 import logo from "./logo.svg";
 import "./home.css";
 import { useAuth } from "../../utils/auth";
+import API from "../../utils/API";
 
 function Home() {
   const { user, logout } = useAuth();
   const history = useHistory();
 
   const goToEditProfile = () => history.push("/profile");
+
+  const mockData = "fields *; limit 30; sort popularity desc;"
+  API.trendingGames(mockData).then((response)=>{console.log(response)})
 
   return (
     console.log("you are home"),
