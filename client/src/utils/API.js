@@ -28,7 +28,7 @@ export default {
     return axios.delete(`/api/delete_user_favorite/${id}`);
   },
     
-  trendingGames:(searchType) => {
+  fetchGames:(searchType) => {
     return axios.get("api/igdbgames", {
       params: { q: searchType },
     });
