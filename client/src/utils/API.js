@@ -36,5 +36,10 @@ export default {
     return axios.get("api/igdbgames", {
       params: { q: searchQuery },
     });
+  },
+  recentReleaseGames:(search) => {
+    return axios.get("api/igdbgames", {
+      params: { q: search },
+    });
   }
 };
