@@ -18,14 +18,14 @@ router.post("/api/signup", (req, res) => {
 });
 
 router.put("/api/new_user_favorite/:id", (req, res) => {
-  db.User.update(
-    { _id: req.params.id },
+  db.User.findByIdAndUpdate(
+    req.params.id,
     { $push: { favorites: req.body } },
-    (error, data) => {
+    (error) => {
       if (error) {
         res.send(error);
       } else {
-        res.send(data);
+        res.end();
       }
     }
   );

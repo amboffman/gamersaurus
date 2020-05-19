@@ -28,8 +28,18 @@ const UserSchema = new Schema({
   },
   favorites: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Favorite",
+      id: {
+        type: Number,
+      },
+      name: {
+        type: String,
+      },
+      cover: {
+        type: Number,
+      },
+      aggregated_rating: {
+        type: Number,
+      },
     },
   ],
 });
