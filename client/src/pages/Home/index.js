@@ -11,12 +11,20 @@ function Home() {
 
   const goToEditProfile = () => history.push("/profile");
 
+  const currentDate = Math.floor(Date.now()/1000);
+  
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
+  const [comingSoonGamesResults, setComingSoonGamesResults] = useState([]);
+
   useEffect(()=>{
-    const trendingGameSearch = "fields *; limit 30; sort popularity desc;"
-    API.trendingGames(trendingGameSearch).then((response)=>{setTrendingGamesResults(response)})
+    // Top 15 popular games in the past month
+    const trendingGameSearch = `fields *; limit 15; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000}; sort popularity desc;`
+    API.fetchGames(trendingGameSearch).then((response)=>{setTrendingGamesResults(response)})
+
+    // Top 15 popular games coming soon
+    const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; sort popularity desc;`
+    API.fetchGames(comingSoonGameSearch).then((response)=>{setComingSoonGamesResults(response)})
   }, []);
-  console.log(trendingGamesResults)
 
   return (
     <div className="App">
