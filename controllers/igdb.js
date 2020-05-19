@@ -4,6 +4,7 @@ const axios = require("axios");
 const router = express.Router();
 
 router.get("/igdbgames", (req, res) => {
+  console.log(req.query.q)
   axios({
     url: "https://api-v3.igdb.com/games",
     method: "POST",
@@ -11,7 +12,7 @@ router.get("/igdbgames", (req, res) => {
       Accept: "application/json",
       "user-key": process.env.API_Key,
     },
-    data: "fields *; sort popularity desc;",
+    data: req.query.q,
   })
     .then((response) => {
       const igdbData = createGameFromIGDBData(response.data);
