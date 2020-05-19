@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import logo from "./logo.svg";
 import "./home.css";
 import { useAuth } from "../../utils/auth";
+import API from "../../utils/API";
 
 function Home() {
   const { user, logout } = useAuth();
@@ -10,8 +11,14 @@ function Home() {
 
   const goToEditProfile = () => history.push("/profile");
 
+  const [trendingGamesResults, setTrendingGamesResults] = useState([]);
+  useEffect(()=>{
+    const trendingGameSearch = "fields *; limit 30; sort popularity desc;"
+    API.trendingGames(trendingGameSearch).then((response)=>{setTrendingGamesResults(response)})
+  }, []);
+  console.log(trendingGamesResults)
+
   return (
-    console.log("you are home"),
     <div className="App">
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
