@@ -14,7 +14,8 @@ export default {
   },
   // add new user favorite
   addUserFavorite: (userID, id, name, cover, aggregated_rating) => {
-    return axios.post(`/api/new_user_favorite/${userID}`, {
+    return axios.put(`/api/new_user_favorite/${userID}`, {
+      user: userID,
       id: id,
       name: name,
       cover: cover,
