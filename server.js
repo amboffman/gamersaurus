@@ -7,6 +7,7 @@ const initDb = require("./config/initDb");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
 const errorMiddleware = require("./routes/errorMiddleware");
+const igdbRouter = require("./controller/igdb");
 
 const PORT = process.env.PORT || 3001;
 
@@ -25,6 +26,8 @@ initDb();
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use("/api", igdbRouter);
 
 app.use(authRouter, usersRouter, errorMiddleware);
 
