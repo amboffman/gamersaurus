@@ -13,20 +13,24 @@ function Home() {
 
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
   const [futureGamesResults, setFutureGamesResults] = useState([]);
+  const [recentReleaseResults, setRecentReleaseResults] = useState([]);
 
   const currentDate = Math.floor(Date.now()/1000);
   console.log(`current date: ${currentDate}`);
 
   useEffect(() => {
     const trendingGameSearch = "fields *; limit 15; sort popularity desc;"
-    const futureGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; sort date asc;`
+    const futureGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; sort first_release_date asc;`
+    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; sort first_release_date desc;`
 
     API.trendingGames(trendingGameSearch).then((response) => { setTrendingGamesResults(response) });
     API.comingSoonGames(futureGameSearch).then((response) => { setFutureGamesResults(response) });
+    API.recentReleaseGames(recentReleaseSearch).then((response) => { setRecentReleaseResults(response) });
 
   }, []);
   console.log(trendingGamesResults);
   console.log(futureGamesResults);
+  console.log("Recent: ", recentReleaseResults);
 
   return (
     <div className="App">
