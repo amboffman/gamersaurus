@@ -33,6 +33,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bcrypt-nodejs": "0.0.3",
     "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
