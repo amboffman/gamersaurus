@@ -15,6 +15,7 @@ function Home() {
   
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
   const [comingSoonGamesResults, setComingSoonGamesResults] = useState([]);
+  const [recentReleaseResults, setRecentReleaseResults] = useState([]);
 
   useEffect(()=>{
     // Top 15 popular games in the past month
@@ -24,6 +25,10 @@ function Home() {
     // Top 15 popular games coming soon
     const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; sort popularity desc;`
     API.fetchGames(comingSoonGameSearch).then((response)=>{setComingSoonGamesResults(response)})
+
+     // Top 15 recently released games
+    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; sort first_release_date desc;`
+    API.fetchGames(recentReleaseSearch).then((response)=>{setRecentReleaseResults(response)})
   }, []);
 
   return (
