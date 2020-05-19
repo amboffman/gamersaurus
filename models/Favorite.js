@@ -12,6 +12,9 @@ const FavoriteSchema = new Schema({
   cover: {
     type: String,
   },
+  aggregated_rating: {
+    type: Number,
+  },
 });
 const Favorite = mongoose.model("Favorite", FavoriteSchema);
 
