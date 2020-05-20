@@ -4,6 +4,8 @@ import logo from "./logo.svg";
 import "./home.css";
 import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
+import Carousel from "../../components/Carousel/Carousel";
+
 
 function Home() {
   const { user, logout } = useAuth();
@@ -19,11 +21,7 @@ function Home() {
 
   useEffect(()=>{
     // Top 15 popular games in the past month
-<<<<<<< HEAD
-    const trendingGameSearch = `fields *; limit 15; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000}; where themes != (42) & category != 0; sort popularity desc;`
-=======
     const trendingGameSearch = `fields *; limit 15; where themes != (42); sort popularity desc;`
->>>>>>> 882ceac2bc44e636861de98e4cea3e99f3561bdb
     API.fetchGames(trendingGameSearch).then((response)=>{setTrendingGamesResults(response)})
 
     // Top 15 popular games coming soon
@@ -35,17 +33,9 @@ function Home() {
     API.fetchGames(recentReleaseSearch).then((response)=>{setRecentReleaseResults(response)})
   }, []);
 
-<<<<<<< HEAD
-=======
-  console.log(trendingGamesResults);
->>>>>>> 882ceac2bc44e636861de98e4cea3e99f3561bdb
-
   return (
     <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome</h2>
-      </div>
+      <Carousel/>
       <p className="App-intro">
         <button
           type="button"
