@@ -32,7 +32,12 @@ export default {
     
   fetchGames:(searchType) => {
     return axios.get("api/igdbgames", {
-      params: { q: searchType },
+      params: { q: searchType, t: "games" },
+    });
+  },
+  fetchCovers:(searchType) => {
+    return axios.get("api/igdbgames", {
+      params: { q: searchType, t:"covers" },
     });
   }
 };

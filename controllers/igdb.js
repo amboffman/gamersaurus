@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/igdbgames", (req, res) => {
   axios({
-    url: "https://api-v3.igdb.com/games",
+    url: `https://api-v3.igdb.com/${req.query.t}`,
     method: "POST",
     headers: {
       Accept: "application/json",
