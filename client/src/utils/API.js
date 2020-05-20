@@ -24,8 +24,10 @@ export default {
   },
 
   // remove user favorite
-  removeUserFavorite: (id) => {
-    return axios.delete(`/api/delete_user_favorite/${id}`);
+  removeUserFavorite: (id, gameId) => {
+    return axios.delete(`/api/delete_user_favorite/${id}`, {
+      id: gameId,
+    });
   },
     
   fetchGames:(searchType) => {

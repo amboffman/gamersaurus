@@ -17,28 +17,4 @@ router.post("/api/signup", (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-router.put("/api/new_user_favorite/:id", (req, res) => {
-  db.User.findByIdAndUpdate(
-    req.params.id,
-    { $push: { favorites: req.body } },
-    (error) => {
-      if (error) {
-        res.send(error);
-      } else {
-        res.end();
-      }
-    }
-  );
-});
-
-router.delete("/api/delete_user_favorite/:id", (req, res) => {
-  db.User.favorites({ _id: req.params.id }.remove(), (error, data) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.send(data);
-    }
-  });
-});
-
 module.exports = router;
