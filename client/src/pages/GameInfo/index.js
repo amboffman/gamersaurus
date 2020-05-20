@@ -4,19 +4,21 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
 import Carousel from "../../components/Carousel/Carousel"
+import GameBanner from "../../components/GameBanner"
 import "./style.css";
 
 function GameInfo() {
   return (
-    <div className="uk-container GameInfo">
+    <div className="GameInfo">
       <Link id="closeButton" to="/">
         Go home
       </Link>
       <div className="">
-        <img
+        <img className="uk-align-center"
           id="coverImage"
           src="https://straffordchiropractic.com/wp-content/uploads/2017/04/poster-placeholder-203x300.png"
         />
+        <GameBanner/>
         <Carousel>
           <InfoCard/>
           <InfoCard/>
