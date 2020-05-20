@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function index() {
+export default function index(props) {
   return (
     <li>
       <div className="uk-card uk-card-default">
@@ -11,7 +11,7 @@ export default function index() {
           ></img>
         </div>
         <div className="uk-card-body">
-          <h3 className="uk-card-title">Game Title</h3>
+          <h3 className="uk-card-title">{props.name} Rating: {props.rating} </h3>
         </div>
       </div>
     </li>

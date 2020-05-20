@@ -64,7 +64,7 @@ module.exports = router;
 
 // const fakeIGDBData = [
 //   {
-//       "id": 115278,
+//       "gameId": 115278,
 //       "age_ratings": [
 //           25494
 //       ],
