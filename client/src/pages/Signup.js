@@ -6,7 +6,6 @@ import {useAuth} from "../utils/auth";
 
 function Signup() {
   const [formState, setFormState] = useState({
-    
     username: "",
     email: "",
     password: ""

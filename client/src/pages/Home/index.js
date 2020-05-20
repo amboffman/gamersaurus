@@ -13,26 +13,25 @@ function Home() {
 
   const goToEditProfile = () => history.push("/profile");
 
+  const currentDate = Math.floor(Date.now()/1000);
+  
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
-  const [futureGamesResults, setFutureGamesResults] = useState([]);
+  const [comingSoonGamesResults, setComingSoonGamesResults] = useState([]);
   const [recentReleaseResults, setRecentReleaseResults] = useState([]);
 
-  const currentDate = Math.floor(Date.now()/1000);
-  console.log(`current date: ${currentDate}`);
+  useEffect(()=>{
+    // Top 15 popular games in the past month
+    const trendingGameSearch = `fields *; limit 15; where themes != (42); sort popularity desc;`
+    API.fetchGames(trendingGameSearch).then((response)=>{setTrendingGamesResults(response)})
 
-  useEffect(() => {
-    const trendingGameSearch = "fields *; limit 15; sort popularity desc;"
-    const futureGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; sort first_release_date asc;`
-    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; sort first_release_date desc;`
+    // Top 15 popular games coming soon
+    const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; where themes != (42) & category != 0; sort popularity desc;`
+    API.fetchGames(comingSoonGameSearch).then((response)=>{setComingSoonGamesResults(response)})
 
-    API.trendingGames(trendingGameSearch).then((response) => { setTrendingGamesResults(response) });
-    API.comingSoonGames(futureGameSearch).then((response) => { setFutureGamesResults(response) });
-    API.recentReleaseGames(recentReleaseSearch).then((response) => { setRecentReleaseResults(response) });
-
+     // Top 15 recently released games
+    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; where themes != (42) & category != 0; sort first_release_date desc;`
+    API.fetchGames(recentReleaseSearch).then((response)=>{setRecentReleaseResults(response)})
   }, []);
-  console.log(trendingGamesResults);
-  console.log(futureGamesResults);
-  console.log("Recent: ", recentReleaseResults);
 
   return (
     <div className="App">

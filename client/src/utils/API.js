@@ -14,7 +14,8 @@ export default {
   },
   // add new user favorite
   addUserFavorite: (userID, id, name, cover, aggregated_rating) => {
-    return axios.post(`/api/new_user_favorite/${userID}`, {
+    return axios.put(`/api/new_user_favorite/${userID}`, {
+      user: userID,
       id: id,
       name: name,
       cover: cover,
@@ -27,19 +28,9 @@ export default {
     return axios.delete(`/api/delete_user_favorite/${id}`);
   },
     
-  trendingGames:(searchType) => {
+  fetchGames:(searchType) => {
     return axios.get("api/igdbgames", {
       params: { q: searchType },
-    });
-  },
-  comingSoonGames:(searchQuery) => {
-    return axios.get("api/igdbgames", {
-      params: { q: searchQuery },
-    });
-  },
-  recentReleaseGames:(search) => {
-    return axios.get("api/igdbgames", {
-      params: { q: search },
     });
   }
 };

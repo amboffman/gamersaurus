@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoUri =
-  process.env.MONGODB_URI ||
-  `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}@ds139956.mlab.com:39956/heroku_5mlp82b4`;
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/appDB";
 
 const dbOptions = {
   useNewUrlParser: true,

@@ -4,7 +4,6 @@ const axios = require("axios");
 const router = express.Router();
 
 router.get("/igdbgames", (req, res) => {
-  console.log(req.query.q);
   axios({
     url: "https://api-v3.igdb.com/games",
     method: "POST",
@@ -21,7 +20,6 @@ router.get("/igdbgames", (req, res) => {
     .catch((error) => {
       // handle errors
       if (error.response) {
-        console.log(error.response.statusText);
         res.sendStatus(error.response.status);
       } else {
         res.sendStatus(500);
@@ -39,6 +37,7 @@ function createGameFromIGDBData(IGDBData) {
       genres,
       name,
       platforms,
+      popularity,
       aggregated_rating,
       screenshots,
       summary,
@@ -52,6 +51,7 @@ function createGameFromIGDBData(IGDBData) {
       genres,
       name,
       platforms,
+      popularity,
       aggregated_rating,
       screenshots,
       summary,
