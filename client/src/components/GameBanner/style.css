@@ -53,3 +53,11 @@
   }
 
 }
+
+@media screen and (min-width: 1025px) {
+  #container {
+    padding-left: 33%;
+    padding-right: 33%;
+  }
+
+}

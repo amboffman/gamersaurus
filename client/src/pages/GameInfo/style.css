@@ -1,4 +1,6 @@
 #closeButton {
+  float: right;
+  margin-right: 10px;
 }
 
 #coverImage {
