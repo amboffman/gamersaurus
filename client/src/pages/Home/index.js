@@ -19,17 +19,18 @@ function Home() {
 
   useEffect(()=>{
     // Top 15 popular games in the past month
-    const trendingGameSearch = `fields *; limit 15; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000}; sort popularity desc;`
+    const trendingGameSearch = `fields *; limit 15; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000}; where themes != (42) & category != 0; sort popularity desc;`
     API.fetchGames(trendingGameSearch).then((response)=>{setTrendingGamesResults(response)})
 
     // Top 15 popular games coming soon
-    const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; sort popularity desc;`
+    const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; where themes != (42) & category != 0; sort popularity desc;`
     API.fetchGames(comingSoonGameSearch).then((response)=>{setComingSoonGamesResults(response)})
 
      // Top 15 recently released games
-    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; sort first_release_date desc;`
+    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; where themes != (42) & category != 0; sort first_release_date desc;`
     API.fetchGames(recentReleaseSearch).then((response)=>{setRecentReleaseResults(response)})
   }, []);
+
 
   return (
     <div className="App">
