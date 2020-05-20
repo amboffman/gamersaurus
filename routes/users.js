@@ -17,4 +17,32 @@ router.get("/api/user/:id", isAuthenticated, (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
+router.put("/api/new_user_favorite/:id", (req, res) => {
+  db.User.findByIdAndUpdate(
+    req.params.id,
+    { $push: { favorites: req.body } },
+    (error) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.end();
+      }
+    }
+  );
+});
+
+router.delete("/api/delete_user_favorite/:id", (req, res) => {
+  db.User.findByIdAndUpdate(
+    req.params.id,
+    { $pull: { favorites: { id: req.body.id } } },
+    (error) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.end();
+      }
+    }
+  );
+});
+
 module.exports = router;
