@@ -19,19 +19,26 @@ function Home() {
 
   useEffect(()=>{
     // Top 15 popular games in the past month
+<<<<<<< HEAD
+    const trendingGameSearch = `fields *; limit 15; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000}; where themes != (42) & category != 0; sort popularity desc;`
+=======
     const trendingGameSearch = `fields *; limit 15; where themes != (42); sort popularity desc;`
+>>>>>>> 882ceac2bc44e636861de98e4cea3e99f3561bdb
     API.fetchGames(trendingGameSearch).then((response)=>{setTrendingGamesResults(response)})
 
     // Top 15 popular games coming soon
-    const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; sort popularity desc;`
+    const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; where themes != (42) & category != 0; sort popularity desc;`
     API.fetchGames(comingSoonGameSearch).then((response)=>{setComingSoonGamesResults(response)})
 
      // Top 15 recently released games
-    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; sort first_release_date desc;`
+    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; where themes != (42) & category != 0; sort first_release_date desc;`
     API.fetchGames(recentReleaseSearch).then((response)=>{setRecentReleaseResults(response)})
   }, []);
 
+<<<<<<< HEAD
+=======
   console.log(trendingGamesResults);
+>>>>>>> 882ceac2bc44e636861de98e4cea3e99f3561bdb
 
   return (
     <div className="App">
