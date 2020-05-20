@@ -12,7 +12,6 @@ function Profile() {
     API.getUser(user.id).then(res => {
       setUsername(res.data.username);
       setEmail(res.data.email);
-      console.log(res.data._id);
     });
   }, [user]);
 

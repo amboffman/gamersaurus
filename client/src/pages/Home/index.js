@@ -5,6 +5,7 @@ import "./home.css";
 import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
 import Carousel from "../../components/Carousel/Carousel";
+import CarouselCard from "../../components//CarouselCard"
 
 
 function Home() {
@@ -35,7 +36,11 @@ function Home() {
 
   return (
     <div className="App">
-      <Carousel/>
+      <Carousel>
+        <CarouselCard/>
+        <CarouselCard/>
+        <CarouselCard/>
+      </Carousel>
       <p className="App-intro">
         <button
           type="button"
