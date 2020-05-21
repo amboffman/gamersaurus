@@ -10,6 +10,7 @@ export default function index(props) {
     day: "numeric",
     year: "numeric",
   });
+  const newRating = props.rating ? ("Rating: " + props.rating.toFixed(0)) : "";
   console.log(releaseDate);
   return (
     <li>
@@ -18,9 +19,8 @@ export default function index(props) {
           <img src={image} alt="placeholder"></img>
         </div>
         <div className="uk-card-body">
-          <h3 className="uk-card-title">
-            {props.name} {props.rating ? `Rating: ${props.rating}` : ""}{" "}
-          </h3>
+          <h3 className="uk-card-title">{props.name} </h3>
+          <p>{newRating}</p>
           <p>{props.date ? `Release Date: ${releaseDate}` : ""}</p>
         </div>
       </div>
