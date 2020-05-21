@@ -22,7 +22,7 @@ function Home() {
 
   useEffect(() => {
     // Top 15 popular games in the past month
-    const trendingGameSearch = `fields name, cover.image_id, aggregated_rating; limit 5; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000} & themes != (42) & category != 0; sort popularity asc;`
+    const trendingGameSearch = `fields name, cover.image_id, aggregated_rating, category; limit 10; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 7889229} & cover != null & themes != (42) & category = 0; sort popularity desc;`
     API.fetchGames(trendingGameSearch)
     .then((response) => { console.log("trending Games", response);
      setTrendingGamesResults(response.data.map(game=>({
@@ -33,7 +33,7 @@ function Home() {
     }))) })
 
     // Top 15 recently released games
-    const recentReleaseSearch = `fields name, cover.image_id, aggregated_rating; limit 15; where first_release_date <= ${currentDate} & cover != null & themes != (42) & category != 0; sort first_release_date desc;`
+    const recentReleaseSearch = `fields name, cover.image_id, aggregated_rating; limit 15; where first_release_date <= ${currentDate} & cover != null & themes != (42) & category = 0; sort first_release_date desc;`
     API.fetchGames(recentReleaseSearch).then((response) => { console.log("Recent Games", response); setRecentReleaseResults(response.data.map(game=>({
       id: game.gameId,
       name: game.name,
@@ -43,7 +43,7 @@ function Home() {
     }))) })
 
         // Top 15 popular games coming soon
-        const comingSoonGameSearch = `fields name, cover.image_id, aggregated_rating; where themes != (42) & category != 0 & first_release_date != null & cover != null; sort first_release_date desc;`
+        const comingSoonGameSearch = `fields name, cover.image_id, aggregated_rating; where first_release_date > ${currentDate} & themes != (42) & category = 0 & first_release_date != null & cover != null; sort first_release_date asc;`
         API.fetchGames(comingSoonGameSearch).then((response) => { console.log("Coming Soong Games", response); setComingSoonGamesResults(response.data.map(game=>({
           id: game.gameId,
           name: game.name,

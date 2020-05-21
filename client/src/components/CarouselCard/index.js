@@ -12,7 +12,7 @@ export default function index(props) {
           ></img>
         </div>
         <div className="uk-card-body">
-          <h3 className="uk-card-title">{props.name} Rating: {props.rating} </h3>
+          <h3 className="uk-card-title">{props.name} {props.rating ? (`Rating: ${props.rating}`) : ("")} </h3>
         </div>
       </div>
     </li>

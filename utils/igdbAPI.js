@@ -3,7 +3,7 @@ const axios = require("axios");
 module.exports = {
   fetchgames: (query) => {
     return axios({
-      url: `https://api-v3.igdb.com/games`,
+      url: "https://api-v3.igdb.com/games",
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -21,6 +21,7 @@ module.exports = {
       const {
         age_ratings,
         first_release_date,
+        category,
         genres,
         name,
         platforms,
@@ -33,6 +34,7 @@ module.exports = {
       return {
         gameId,
         age_ratings,
+        category,
         cover,
         first_release_date,
         genres,
@@ -45,6 +47,5 @@ module.exports = {
         videos,
       };
     });
-  }
-  
+  },
 };
