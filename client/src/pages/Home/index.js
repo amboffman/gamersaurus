@@ -43,7 +43,7 @@ function Home() {
     }))) })
 
         // Top 15 popular games coming soon
-        const comingSoonGameSearch = `fields name, cover.image_id, aggregated_rating; where first_release_date > ${currentDate} & themes != (42) & category = 0 & first_release_date != null & cover != null; sort first_release_date asc;`
+        const comingSoonGameSearch = `fields name, cover.image_id, first_release_date, aggregated_rating; where first_release_date > ${currentDate} & themes != (42) & category = 0 & first_release_date != null & cover != null; sort first_release_date asc;`
         API.fetchGames(comingSoonGameSearch).then((response) => { console.log("Coming Soong Games", response); setComingSoonGamesResults(response.data.map(game=>({
           id: game.gameId,
           name: game.name,
@@ -53,7 +53,6 @@ function Home() {
     
         }))) })
   }, []);
-
 
   return (
     <div className="App">
@@ -88,7 +87,7 @@ function Home() {
       <h1>Coming Soon</h1>
       <Carousel>
       {comingSoonGamesResults.map((game) => (
-          <CarouselCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} />
+          <CarouselCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} date= {game.date}/>
         ))}
       </Carousel>
     </div>
