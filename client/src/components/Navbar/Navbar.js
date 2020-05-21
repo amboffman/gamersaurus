@@ -48,52 +48,41 @@ function NavLinks() {
 
 function Navbar() {
   return (
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown"> 
     <nav className="uk-navbar-container" uk-navbar>
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-        <img src= {logo} className= "logo"></img>
-        </Link>
-        <div className="uk-navbar-right">
-          <ul className="uk-navbar-nav">
-            <li>
-              <Link className="navbar-brand" to="/profile">
-                <span uk-icon="user"></span>
-              </Link>
-              <div className="uk-navbar-dropdown">
-                <NavLinks />
-              </div>
-            </li>
-          </ul>
-
-        </div>
+      <div className="uk-navbar">
+        <ul className="uk-navbar-nav">
+          <li>
+            <Link className="navbar-logo" to="/">
+              <img src={logo} className="logo" alt="8-bit dino logo"></img>
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar-search" to="/search">
+              <span uk-icon="search"></span>
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar-user" to="/profile">
+              <span uk-icon="user"></span>
+            </Link>
+            {/* <div className="uk-navbar-dropdown">
+              <ul className="uk-nav uk-navbar-dropdown-nav">
+                <li className="uk-active"><a href="#">Active</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+              </ul>
+            </div> */}
+          </li>
+        </ul>
       </div>
     </nav>
+    </div>
+
   );
 }
 
 export default Navbar;
 
 
-{/* <nav class="uk-navbar-container" uk-navbar>
 
-  <div class="uk-navbar-center">
-
-    <ul class="uk-navbar-nav">
-      <li class="uk-active"><a href="#">Active</a></li>
-      <li>
-        <a href="#">Parent</a>
-        <div class="uk-navbar-dropdown">
-          <ul class="uk-nav uk-navbar-dropdown-nav">
-            <li class="uk-active"><a href="#">Active</a></li>
-            <li><a href="#">Item</a></li>
-            <li><a href="#">Item</a></li>
-          </ul>
-        </div>
-      </li>
-      <li><a href="#">Item</a></li>
-    </ul>
-
-  </div>
-
-
-</nav> */}
