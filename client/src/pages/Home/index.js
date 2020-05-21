@@ -17,22 +17,23 @@ function Home() {
   const currentDate = Math.floor(Date.now() / 1000);
 
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
+  
   const [comingSoonGamesResults, setComingSoonGamesResults] = useState([]);
   const [recentReleaseResults, setRecentReleaseResults] = useState([]);
 
   useEffect(() => {
     // Top 15 popular games in the past month
-    const trendingGameSearch = `fields *; limit 15; where themes != (42); sort popularity desc;`
-    API.fetchGames(trendingGameSearch).then((response) => { setTrendingGamesResults(response.data.map(game=>({
+    const trendingGameSearch = `fields name, cover.url, aggregated_rating; limit 15; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000}; where themes != (42) & category != 0; sort popularity asc;`
+    API.fetchGames(trendingGameSearch)
+    .then((response) => { setTrendingGamesResults(response.data.map(game=>({
       id: game.gameId,
       name: game.name,
       rating: game.aggregated_rating,
       cover: game.cover
-
     }))) })
 
     // Top 15 popular games coming soon
-    const comingSoonGameSearch = `fields *; limit 15; where first_release_date > ${currentDate}; where themes != (42) & category != 0; sort popularity desc;`
+    const comingSoonGameSearch = `fields name, aggregated_rating, cover.url; limit 15; where first_release_date > ${currentDate}; where themes != (42) & category != 0; sort popularity desc;`
     API.fetchGames(comingSoonGameSearch).then((response) => { setComingSoonGamesResults(response.data.map(game=>({
       id: game.gameId,
       name: game.name,
@@ -42,7 +43,7 @@ function Home() {
     }))) })
 
     // Top 15 recently released games
-    const recentReleaseSearch = `fields *; limit 15; where first_release_date <= ${currentDate}; where themes != (42) & category != 0; sort first_release_date desc;`
+    const recentReleaseSearch = `fields name, aggregated_rating, cover.url; limit 15; where first_release_date <= ${currentDate}; where themes != (42) & category != 0; sort first_release_date asc;`
     API.fetchGames(recentReleaseSearch).then((response) => { setRecentReleaseResults(response.data.map(game=>({
       id: game.gameId,
       name: game.name,
@@ -52,6 +53,7 @@ function Home() {
     }))) })
   }, []);
 
+  console.log(trendingGamesResults)
   return (
     <div className="App">
       <p className="App-intro">
@@ -70,16 +72,19 @@ function Home() {
           Logout
         </button>
       </p>
+      <h1>Trending</h1>
       <Carousel>
         {trendingGamesResults.map((game) => (
           <CarouselCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} />
         ))}
       </Carousel>
+      <h1>Recent Releases</h1>
       <Carousel>
       {recentReleaseResults.map((game) => (
           <CarouselCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} />
         ))}
       </Carousel>
+      <h1>Coming Soon</h1>
       <Carousel>
       {comingSoonGamesResults.map((game) => (
           <CarouselCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} />

@@ -6,7 +6,7 @@ export default function index(props) {
       <div className="uk-card uk-card-default">
         <div className="uk-card-media-top">
           <img
-            src="https://straffordchiropractic.com/wp-content/uploads/2017/04/poster-placeholder-203x300.png"
+            src={props.cover}
             alt="placeholder"
           ></img>
         </div>

@@ -46,10 +46,10 @@ function NavLinks() {
 
 function Navbar() {
   return (
-    <nav className="uk-navbar-container uk-navbar-transparent">
-      <div className="uk-container">
-        <Link className="uk-navbar-brand" to="/">
-          Gamersaurus
+    <nav className="navbar navbar-expand navbar-dark bg-primary">
+      <div className="container">
+        <Link className="navbar-brand" to="/">
+          React JWT App
         </Link>
         <NavLinks />
       </div>
