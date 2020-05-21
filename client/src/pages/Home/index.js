@@ -17,44 +17,44 @@ function Home() {
   const currentDate = Math.floor(Date.now() / 1000);
 
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
-  
   const [comingSoonGamesResults, setComingSoonGamesResults] = useState([]);
   const [recentReleaseResults, setRecentReleaseResults] = useState([]);
 
   useEffect(() => {
     // Top 15 popular games in the past month
-    const trendingGameSearch = `fields name, cover.image_id, aggregated_rating; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000} & themes != (42) & category != 0; sort popularity asc; limit 5;`
+    const trendingGameSearch = `fields name, cover.image_id, aggregated_rating; limit 5; where first_release_date < ${currentDate} & first_release_date > ${currentDate - 2592000} & themes != (42) & category != 0; sort popularity asc;`
     API.fetchGames(trendingGameSearch)
-    .then((response) => { setTrendingGamesResults(response.data.map(game=>({
+    .then((response) => { console.log("trending Games", response);
+     setTrendingGamesResults(response.data.map(game=>({
       id: game.gameId,
       name: game.name,
       rating: game.aggregated_rating,
-      cover: game.cover
+      cover: game.cover.image_id
     }))) })
 
     // Top 15 recently released games
-    const recentReleaseSearch = `fields name, cover.image_id, aggregated_rating; limit 15; where first_release_date <= ${currentDate} & themes != (42) & category != 0; sort first_release_date desc;`
-    API.fetchGames(recentReleaseSearch).then((response) => { setRecentReleaseResults(response.data.map(game=>({
+    const recentReleaseSearch = `fields name, cover.image_id, aggregated_rating; limit 15; where first_release_date <= ${currentDate} & cover != null & themes != (42) & category != 0; sort first_release_date desc;`
+    API.fetchGames(recentReleaseSearch).then((response) => { console.log("Recent Games", response); setRecentReleaseResults(response.data.map(game=>({
       id: game.gameId,
       name: game.name,
       rating: game.aggregated_rating,
-      cover: game.cover
+      cover: game.cover.image_id
 
     }))) })
 
         // Top 15 popular games coming soon
-        const comingSoonGameSearch = `fields name, cover.image_id, aggregated_rating; where themes != (42) & category != 0 & first_release_date != null; sort first_release_date desc;`
-        API.fetchGames(comingSoonGameSearch).then((response) => { setComingSoonGamesResults(response.data.map(game=>({
+        const comingSoonGameSearch = `fields name, cover.image_id, aggregated_rating; where themes != (42) & category != 0 & first_release_date != null & cover != null; sort first_release_date desc;`
+        API.fetchGames(comingSoonGameSearch).then((response) => { console.log("Coming Soong Games", response); setComingSoonGamesResults(response.data.map(game=>({
           id: game.gameId,
           name: game.name,
           rating: game.aggregated_rating,
           date: game.first_release_date,
-          cover: game.cover
+          cover: game.cover.image_id
     
         }))) })
   }, []);
 
-  console.log(comingSoonGamesResults)
+
   return (
     <div className="App">
       <p className="App-intro">

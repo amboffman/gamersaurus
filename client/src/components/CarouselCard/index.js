@@ -2,7 +2,6 @@ import React from "react";
 
 export default function index(props) {
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${props.cover}.jpg`
-  console.log("image", image)
   return (
     <li>
       <div className="uk-card uk-card-default">
