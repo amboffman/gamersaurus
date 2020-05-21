@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
-import Carousel from "../../components/Carousel/Carousel";
+import Carousel from "../../components/Carousel";
 import GameBanner from "../../components/GameBanner";
 import "./style.css";
 

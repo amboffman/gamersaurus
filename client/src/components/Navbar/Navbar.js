@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
+import logo from "../../images/logo.png";
+import "./style.css";
 
 const createLink = ({ text, to, ...rest }) => {
   const className = "nav-link";
@@ -34,7 +36,7 @@ function NavLinks() {
     links.push({ text: "Login", to: "/login" });
   }
   return (
-    <ul className="navbar-nav">
+    <ul className="uk-nav uk-navbar-dropdown-nav">
       {links.map((link, i) => (
         <li key={i} className="nav-item">
           {createLink(link)}
@@ -46,15 +48,52 @@ function NavLinks() {
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-primary">
+    <nav className="uk-navbar-container" uk-navbar>
       <div className="container">
         <Link className="navbar-brand" to="/">
-          React JWT App
+        <img src= {logo} className= "logo"></img>
         </Link>
-        <NavLinks />
+        <div className="uk-navbar-right">
+          <ul className="uk-navbar-nav">
+            <li>
+              <Link className="navbar-brand" to="/profile">
+                <span uk-icon="user"></span>
+              </Link>
+              <div className="uk-navbar-dropdown">
+                <NavLinks />
+              </div>
+            </li>
+          </ul>
+
+        </div>
       </div>
     </nav>
   );
 }
 
 export default Navbar;
+
+
+{/* <nav class="uk-navbar-container" uk-navbar>
+
+  <div class="uk-navbar-center">
+
+    <ul class="uk-navbar-nav">
+      <li class="uk-active"><a href="#">Active</a></li>
+      <li>
+        <a href="#">Parent</a>
+        <div class="uk-navbar-dropdown">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Item</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">Item</a></li>
+    </ul>
+
+  </div>
+
+
+</nav> */}
