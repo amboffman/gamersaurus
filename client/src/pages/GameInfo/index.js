@@ -8,14 +8,14 @@ import GameBanner from "../../components/GameBanner";
 import "./style.css";
 
 function GameInfo() {
-  const [gameQuery, setgameSearch] = useState([]);
-  const [gameResult, setGameResult] = useState([]);
+  const [game, setGame] = useState([]);
+  const {name} = useParams();
   useEffect(() => {
-
-    const gameSearch = `fields cover.image_id, name, genres.name, first_release_date, summary, age_ratings.*, platforms; 
-    search ${gameQuery};`;
-    API.fetchGame(gameSearch).then((response) => {
-      setGameResult(
+  if(!name){
+    return;
+  }
+    API.fetchGame(name).then((response) => {
+      setGame(
         response.data.map((game) => ({
           id: game.gameId,
           name: game.name,
