@@ -1,17 +1,27 @@
 import React from "react";
 
 export default function index(props) {
+  const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${props.cover}.jpg`;
+  const multi = props.date * 1000;
+  const myDate = new Date(multi);
+  const releaseDate = myDate.toLocaleString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+  const newRating = props.rating ? ("Rating: " + props.rating.toFixed(0)) : "";
+  console.log(releaseDate);
   return (
     <li>
       <div className="uk-card uk-card-default">
         <div className="uk-card-media-top">
-          <img
-            src="https://straffordchiropractic.com/wp-content/uploads/2017/04/poster-placeholder-203x300.png"
-            alt="placeholder"
-          ></img>
+          <img src={image} alt="placeholder"></img>
         </div>
         <div className="uk-card-body">
-          <h3 className="uk-card-title">{props.name} Rating: {props.rating} </h3>
+          <h3 className="uk-card-title">{props.name} </h3>
+          <p>{newRating}</p>
+          <p>{props.date ? `Release Date: ${releaseDate}` : ""}</p>
         </div>
       </div>
     </li>
