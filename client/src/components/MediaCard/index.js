@@ -1,9 +1,12 @@
 import React from 'react'
 
-export default function MediaCard() {
+function MediaCard() {
     return (
-        <div>
-            
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <h3 class="uk-card-title">Screenshots</h3>
+            <h3 class="uk-card-title">Trailer</h3>
         </div>
     )
 }
+
+export default MediaCard;
