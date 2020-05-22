@@ -1,0 +1,14 @@
+.card {
+  position: relative;
+}
+
+.rating{
+  padding: 1px 5px 1px 5px;
+  position: absolute;
+  right: 10px;
+  top: 240px;
+  color: white;
+  border-radius: 150px;
+  background-color: #43d87d;
+}
+
