@@ -35,12 +35,11 @@ function Search() {
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
         />
-        <span></span>
         <button onClick={handleFormSubmit} type="button" className="uk-button button">Find Games</button>
       </form>
       <GameResults>
         {searchResults.map((game) => (
-          <GameCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating}/> 
+          <GameCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} id = {game.id}/> 
         ))}
       </GameResults>
     </div>
