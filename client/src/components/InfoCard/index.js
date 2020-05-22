@@ -11,9 +11,35 @@ export default function index(props) {
   }
   if (props.age_ratings) {
     age_ratings = props.age_ratings.map((ar) => {
+      switch(ar.rating){
+        case 6:
+          return "RP"
+          break;
+        case 7:
+          return "EC"
+          break;
+        case 8:
+          return "E"
+          break;
+        case 9:
+          return "E10"
+          break;
+        case 10:
+          return "T"
+          break;
+        case 11:
+          return "M"
+          break;
+        case 12:
+          return "AO"
+          break;
+          default: 
+          return
+      }
       return ar.rating
-    }).join(", ");
+    });
   }
+  
   return (
     <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
       <h3 className="uk-card-title">Summary</h3>
@@ -46,7 +72,7 @@ export default function index(props) {
       </div>
 
       <p className="subCategory">Rated</p>
-      <span>{age_ratings}</span>
+      <p>{age_ratings}</p>
       <p className="subCategory">Platforms</p>
       <span>{platforms}</span>
     </div>
