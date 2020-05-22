@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import { useAuth } from "../../utils/auth";
-import FavoritesCard from "../../components/FavoritesCard";
+// import FavoritesCard from "../../components/FavoritesCard";
 import GameResults from "../../components/GameResults";
+import GameCard from "../../components/GameCard";
 import "./style.css";
 
 function Profile() {
@@ -25,7 +26,7 @@ function Profile() {
       <p>HERE ARE YOUR FAVORITES ♡</p>
       <GameResults>
         {favorites.map((game) => (
-          <FavoritesCard
+          <GameCard
             id={game.id}
             key={game.id}
             cover={game.cover}
