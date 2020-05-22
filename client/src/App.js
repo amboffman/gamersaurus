@@ -13,7 +13,7 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import GameInfo from "./pages/GameInfo";
-import Search from "./pages/Search";
+import Search from "./pages/Search/Search";
 import Navbar from "./components/Navbar";
 
 function ProtectedRoute({ children, ...rest }) {

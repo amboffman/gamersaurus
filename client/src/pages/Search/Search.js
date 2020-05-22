@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import API from "./../utils/API";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import SearchResults from "../components/SearchResults";
-import SearchCard from "../components/SearchCard";
+import SearchResults from "../../components/SearchResults";
+import SearchCard from "../../components/SearchCard";
 
 
 function Search() {
@@ -26,8 +26,8 @@ function Search() {
 
   return (
     <div className="uk-margin .uk-align-center">
-      <h1>On the Search page!</h1>
-      <Link to="/">Go home</Link>
+      <h1>Search page!</h1>
+      {/* <Link to="/">Go home</Link> */}
       <form className="uk-search uk-search-default">
         <span uk-search-icon></span>
         <input
@@ -41,7 +41,6 @@ function Search() {
         <button onClick={handleFormSubmit} type="button" >Go!</button>
       </form>
       <SearchResults>
-        {/* <SearchCard/> */}
         {searchResults.map((game) => (
           <SearchCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating}/> 
         ))}
