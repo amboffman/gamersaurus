@@ -15,10 +15,8 @@ function GameInfo() {
       setGame(response.data[0]);
     });
   }, []);
-  console.log("New Game", game);
 
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
-  console.log("image",image)
   return (
     <div className="GameInfo">
       <span id="closeButton">
