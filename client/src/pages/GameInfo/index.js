@@ -34,7 +34,10 @@ function GameInfo() {
         genres={game.genres} 
         date={game.first_release_date}/>
         <Carousel>
-          <InfoCard summary={game.summary}/>
+          <InfoCard 
+          summary={game.summary}
+          platform={game.platform}
+          />
           <InfoCard />
           <InfoCard />
         </Carousel>

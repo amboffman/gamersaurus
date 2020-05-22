@@ -37,7 +37,7 @@ export default function index(props) {
         <p className="subCategory">Rated</p>
         <span>E</span>
         <p className="subCategory">Platforms</p>
-        <span>🎮</span>
+        <span>{props.platform}🎮</span>
       </div>
     </li>
   );
