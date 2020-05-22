@@ -3,9 +3,15 @@ import "./style.css";
 
 export default function index(props) {
   let platforms;
+  let age_ratings;
   if (props.platforms) {
     platforms = props.platforms.map((p) => {
       return p.abbreviation
+    }).join(", ");
+  }
+  if (props.age_ratings) {
+    age_ratings = props.age_ratings.map((ar) => {
+      return ar.rating
     }).join(", ");
   }
   return (
@@ -40,7 +46,7 @@ export default function index(props) {
       </div>
 
       <p className="subCategory">Rated</p>
-      <span>E</span>
+      <span>{age_ratings}</span>
       <p className="subCategory">Platforms</p>
       <span>{platforms}</span>
     </div>
