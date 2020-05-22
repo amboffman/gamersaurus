@@ -32,7 +32,7 @@ function GameInfo() {
         />
         <GameBanner name={game.name} rating={game.rating} genres={game.genres}/>
         <Carousel>
-          <InfoCard />
+          <InfoCard summary={game.summary}/>
           <InfoCard />
           <InfoCard />
         </Carousel>
