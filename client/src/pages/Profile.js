@@ -6,12 +6,14 @@ import { useAuth } from "../utils/auth";
 function Profile() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [favorites, setFavorites] = useState([])
   const { user } = useAuth();
 
   useEffect(() => {
     API.getUser(user.id).then(res => {
       setUsername(res.data.username);
       setEmail(res.data.email);
+      setFavorites(res.data.favorites);
     });
   }, [user]);
 
