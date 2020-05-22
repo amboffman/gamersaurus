@@ -69,6 +69,7 @@ function Home() {
         {trendingGamesResults.map((game) => (
           <CarouselCard
             key={game.id}
+            id={game.id}
             cover={game.cover}
             name={game.name}
             rating={game.rating}

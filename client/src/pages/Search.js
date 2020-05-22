@@ -6,20 +6,6 @@ import { useAuth } from "../utils/auth";
 function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState("");
-  
-//   useEffect(() => {
-//   });
-// }, [searchQuery]);
-
-// function handleInputChange (event) {
-//   // Getting the value and name of the input which triggered the change
-//   let value = event.target.value;
-//   const name = event.target.name;
-  
-//   // Updating the input's state
-//   setSearchQuery(value);
-// };
-
 
 function handleFormSubmit (event) {
   event.preventDefault()

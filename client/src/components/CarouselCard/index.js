@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function index(props) {
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${props.cover}.jpg`;
   const multi = props.date * 1000;
@@ -13,6 +13,7 @@ export default function index(props) {
   const newRating = props.rating ? ("Rating: " + props.rating.toFixed(0)) : "";
   return (
     <li>
+      <Link to={"/" + props.id}>
       <div className="uk-card uk-card-default">
         <div className="uk-card-media-top">
           <img src={image} alt="placeholder"></img>
@@ -23,6 +24,7 @@ export default function index(props) {
           <p>{props.date ? `Release Date: ${releaseDate}` : ""}</p>
         </div>
       </div>
+      </Link>
     </li>
   );
 }
