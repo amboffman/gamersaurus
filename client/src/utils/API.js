@@ -35,9 +35,10 @@ export default {
       params: { q: searchType },
     });
   },
-  fetchGame:(gameName) => {
+
+  fetchGame:(gameID) => {
     return axios.get("api/igdbgame", {
-      params: { q: gameName },
+      params: { q: gameID },
     });
   }
 };

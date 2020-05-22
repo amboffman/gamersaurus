@@ -21,10 +21,10 @@ router.get("/igdbgames", (req, res) => {
       }
     });
 });
-// Game Info Route - cover.img_id, name , genres.name, first_released_date, summary, age_rating, platform
+
 router.get("/igdbgame", (req, res) => {
   const gameToSearch = `fields cover.image_id, name, genres.name, first_release_date, summary, age_ratings, platforms;
-  search "${req.query.q}";`
+  where id=${req.query.q};`
   IGDBAPI.fetchgame(gameToSearch)
     .then((gameData) => {
       const games = IGDBAPI.createGameFromIGDBData(gameData);

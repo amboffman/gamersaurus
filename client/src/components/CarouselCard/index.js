@@ -13,7 +13,7 @@ export default function index(props) {
   const newRating = props.rating ? ("Rating: " + props.rating.toFixed(0)) : "";
   return (
     <li>
-      <Link to={"/gameinfo/" + props.name}>
+      <Link to={"/gameinfo/" + props.id}>
       <div className="uk-card uk-card-default">
         <div className="uk-card-media-top">
           <img src={image} alt="placeholder"></img>
