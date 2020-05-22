@@ -11,7 +11,6 @@ export default function index(props) {
     year: "numeric",
   });
   const newRating = props.rating ? ("Rating: " + props.rating.toFixed(0)) : "";
-  console.log(releaseDate);
   return (
     <li>
       <div className="uk-card uk-card-default">

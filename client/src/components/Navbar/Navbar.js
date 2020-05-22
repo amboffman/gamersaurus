@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
+import logo from "../../images/logo.png";
+import "./style.css";
 
 const createLink = ({ text, to, ...rest }) => {
   const className = "nav-link";
@@ -34,7 +36,7 @@ function NavLinks() {
     links.push({ text: "Login", to: "/login" });
   }
   return (
-    <ul className="navbar-nav">
+    <ul className="uk-nav uk-navbar-dropdown-nav">
       {links.map((link, i) => (
         <li key={i} className="nav-item">
           {createLink(link)}
@@ -46,15 +48,43 @@ function NavLinks() {
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-primary">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          React JWT App
-        </Link>
-        <NavLinks />
-      </div>
-    </nav>
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown">
+      <nav className="uk-navbar uk-navbar-container" uk-navbar = "mode: click">
+        <div className="uk-navbar-left">
+          <ul className="uk-navbar-nav">
+            <li>
+              <Link className="navbar-brand" to="/">
+                <img src={logo} className="logo" alt="8-bit dino logo"></img>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="uk-navbar-center">
+          <ul className="uk-navbar-nav">
+            <li>
+              <Link className="navbar-search" to="/search">
+                <span uk-icon="search"></span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="uk-navbar-right">
+          <ul className="uk-navbar-nav">
+            <li className= "uk-parent">
+              <Link className="navbar-brand" to="/profile">
+                <span uk-icon="user"></span>
+              </Link>
+              <div className="uk-navbar-dropdown">
+                <ul className="uk-nav uk-navbar-dropdown-nav">
+                  <NavLinks/>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   );
 }
-
 export default Navbar;

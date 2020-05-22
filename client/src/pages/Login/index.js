@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import { useAuth } from "../utils/auth";
+import { useAuth } from "../../utils/auth";
+import "./style.css"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -24,13 +25,13 @@ function Login() {
   };
 
   return (
-    <div className="container">
+    <div className="uk-container uk-align-center">
       <h1>Login</h1>
       <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
+        <div className="uk-margin">
           <label htmlFor="email">Email address:</label>
           <input
-            className="form-control"
+            className="uk-input"
             placeholder="Email goes here..."
             name="email"
             type="email"
@@ -39,10 +40,10 @@ function Login() {
             onChange={({ target }) => setEmail(target.value)}
           />
         </div>
-        <div className="form-group">
+        <div className="uk-margin">
           <label htmlFor="pwd">Password:</label>
           <input
-            className="form-control"
+            className="uk-input"
             placeholder="Password goes here..."
             name="password"
             type="password"
@@ -51,12 +52,12 @@ function Login() {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="uk-button button">
           Submit
         </button>
       </form>
       <p>
-        <Link to="/signup">Go to Signup</Link>
+        <Link id="link" to="/signup">Go to Signup</Link>
       </p>
     </div>
   );
