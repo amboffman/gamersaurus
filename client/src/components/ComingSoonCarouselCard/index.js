@@ -6,7 +6,6 @@ export default function index(props) {
   const multi = props.date * 1000;
   const myDate = new Date(multi);
   const releaseDate = myDate.toLocaleString("en-US", {
-    weekday: "long",
     month: "long",
     day: "numeric",
     year: "numeric",
@@ -32,10 +31,10 @@ export default function index(props) {
         <div className="uk-card-media-top">
           <img src={image} alt={props.name}></img>
         </div>
-        <div className="cardBody uk-card-body">
-          <p className="uk-card-title">{props.name} </p>
+        <div className="comingSoonCardBody uk-card-body">
+          <span className="uk-card-title">{props.name} </span>
           {ratingElement}
-          <p>{props.date ? `Release Date: ${releaseDate}` : ""}</p>
+          <p >{props.date ? `${releaseDate}` : ""}</p>
         </div>
       </div>
       </Link>

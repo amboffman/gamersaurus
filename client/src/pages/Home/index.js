@@ -5,6 +5,7 @@ import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
 import Carousel from "../../components/Carousel";
 import CarouselCard from "../../components/CarouselCard";
+import ComingSoonCarouselCard from "../../components/ComingSoonCarouselCard"
 
 function Home() {
   const { user, logout } = useAuth();
@@ -90,7 +91,7 @@ function Home() {
       <h1>Coming Soon</h1>
       <Carousel>
         {comingSoonGamesResults.map((game) => (
-          <CarouselCard
+          <ComingSoonCarouselCard
             key={game.id}
             cover={game.cover}
             name={game.name}

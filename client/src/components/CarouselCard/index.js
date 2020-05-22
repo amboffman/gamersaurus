@@ -19,7 +19,7 @@ export default function index(props) {
       ratingElement = "";
       break;
     case (props.rating.toFixed(0)):
-      ratingElement = <p className="rating">{newRating}</p>
+      ratingElement = <p className="rating uk-position-small uk-position-bottom-right">{newRating}</p>
       break;
     default:
       break;
@@ -30,11 +30,11 @@ export default function index(props) {
       <Link to={"/" + props.id}>
       <div className="card uk-card uk-card-default">
         <div className="uk-card-media-top">
-          <img src={image} alt={props.name}></img>
+          <img src={image} alt={props.name}/>
+          {ratingElement}
         </div>
         <div className="cardBody uk-card-body">
           <p className="uk-card-title">{props.name} </p>
-          {ratingElement}
           <p>{props.date ? `Release Date: ${releaseDate}` : ""}</p>
         </div>
       </div>

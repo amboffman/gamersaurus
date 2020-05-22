@@ -1,20 +1,5 @@
-.card {
-  position: relative;
-}
-
-.rating{
-  padding: 1px 5px 1px 5px;
-  font-size: x-large;
-  position: absolute;
-  right: 5px;
-  top: 230px;
-  color: white;
-  border-radius: 150px;
-  background-color: #43d87d;
-}
-
-.cardBody {
+.comingSoonCardBody {
   padding: 5px 5px 5px 5px;
-  max-height: 90px;
-  min-height: 90px;
+  max-height: 120px;
+  min-height: 120px;
 }

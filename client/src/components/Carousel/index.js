@@ -7,7 +7,7 @@ function Carousel(props) {
 
             <div className="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
-                <ul className="uk-slider-items uk-child-width-1-6 uk-grid">
+                <ul className="uk-slider-items uk-child-width-1-2 uk-child-width-1-4@s uk-child-width-1-6@m uk-grid">
                     {props.children}
                 </ul>
 
