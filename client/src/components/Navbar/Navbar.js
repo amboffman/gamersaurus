@@ -49,7 +49,7 @@ function NavLinks() {
 function Navbar() {
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown">
-      <nav className="uk-navbar uk-navbar-container" uk-navbar>
+      <nav className="uk-navbar uk-navbar-container" uk-navbar = "mode: click">
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
             <li>
@@ -71,15 +71,13 @@ function Navbar() {
 
         <div className="uk-navbar-right">
           <ul className="uk-navbar-nav">
-            <li>
+            <li className= "uk-parent">
               <Link className="navbar-brand" to="/profile">
                 <span uk-icon="user"></span>
               </Link>
               <div className="uk-navbar-dropdown">
                 <ul className="uk-nav uk-navbar-dropdown-nav">
-                  <li className="uk-active"><a href="#">Active</a></li>
-                  <li><a href="#">Item</a></li>
-                  <li><a href="#">Item</a></li>
+                  <NavLinks/>
                 </ul>
               </div>
             </li>
