@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import logo from "./logo.svg";
 import "./home.css";
 import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
@@ -65,22 +64,6 @@ function Home() {
 
   return (
     <div className="App">
-      <p className="App-intro">
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={goToEditProfile}
-        >
-          Go to Profile
-        </button>
-        <button
-          type="button"
-          className="btn btn-danger"
-          onClick={() => logout()}
-        >
-          Logout
-        </button>
-      </p>
       <h1>Trending</h1>
       <Carousel>
         {trendingGamesResults.map((game) => (

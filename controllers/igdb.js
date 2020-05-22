@@ -1,6 +1,6 @@
 const express = require("express");
-const axios = require("axios");
-const IGDBAPI = require("../utils/igdbAPI")
+// const axios = require("axios");
+const IGDBAPI = require("../utils/igdbAPI");
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.get("/igdbgames", (req, res) => {
     .catch((error) => {
       // handle errors
       console.log(error);
-      console.log(error.request.url)
+      console.log(error.request.url);
       if (error.response) {
         res.sendStatus(error.response.status);
       } else {
