@@ -55,6 +55,7 @@ function GameInfo() {
   }
 
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
+  console.log("AR", game);
   return (
     <div className="GameInfo">
       <span id="closeButton">
@@ -81,7 +82,7 @@ function GameInfo() {
 
           <ul id="tabs" className="uk-switcher uk-margin">
             <li>
-              <InfoCard summary={game.summary} platform={game.platform} />
+              <InfoCard summary={game.summary} platform={game.platform} age_ratings={game.age_ratings} />
             </li>
 
             <li>

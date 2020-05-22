@@ -7,6 +7,7 @@ export default function index(props) {
   const releaseDate = myDate.toLocaleString("en-US", {
     year: "numeric",
   });
+  
   let genres;
   if (props.genres) {
     genres = props.genres.map((g) => {
