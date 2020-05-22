@@ -3,8 +3,8 @@ import API from "../../utils/API";
 import { Link, useParams } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
-import Carousel from "../../components/Carousel/index";
 import GameBanner from "../../components/GameBanner";
+import MediaCard from "../../components/MediaCard";
 import "./style.css";
 
 function GameInfo() {
@@ -37,6 +37,7 @@ function GameInfo() {
           summary={game.summary}
           platform={game.platform}
         />
+        <MediaCard />
 
       </div>
     </div>
