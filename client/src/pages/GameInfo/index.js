@@ -33,12 +33,24 @@ function GameInfo() {
           rating={game.aggregated_rating}
           genres={game.genres}
           date={game.first_release_date} />
-        <InfoCard
-          summary={game.summary}
-          platform={game.platform}
-        />
-        <MediaContainer />
+        <div>
+          <ul className="uk-tab" data-uk-tab="{connect: '#tabs'}">
+            <li><a href="#">MEDIA</a></li>
+            <li><a href="#">ABOUT</a></li>
+          </ul>
 
+          <ul id="tabs" className="uk-switcher uk-margin">
+            <li>
+              <MediaContainer />
+            </li>
+            <li>
+              <InfoCard
+                summary={game.summary}
+                platform={game.platform}
+              />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
