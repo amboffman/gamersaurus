@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import API from "./../utils/API";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
+import SearchResults from "../components/SearchResults";
+import SearchCard from "../components/SearchCard";
 
 
 function Search() {
@@ -12,7 +14,7 @@ function Search() {
     event.preventDefault()
     console.log("Search", searchQuery)
     const fullSearch = `fields *; limit 15; search "${searchQuery}";`
-    API.fetchGames(fullSearch).then((response) => { setComingSoonGamesResults(response.data.map(game=>({
+    API.fetchGames(fullSearch).then((response) => { setSearchResults(response.data.map(game=>({
       id: game.gameId,
       name: game.name,
       rating: game.aggregated_rating,
