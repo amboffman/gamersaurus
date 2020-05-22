@@ -16,7 +16,7 @@ function GameInfo() {
 
   useEffect(() => {
     API.fetchGame(id).then((response) => {
-      setGame(response.data[0]);
+      setGame(response.data[0]);    
     });
   }, []);
 
@@ -31,16 +31,6 @@ function GameInfo() {
         game.cover,
         game.aggregated_rating
       ).then((response) => {});
-    } else {
-      alert("You need to be logged in to add this game to your favorites.");
-    }
-  }
-
-  function removeFavorite(event) {
-    event.preventDefault();
-    if (user) {
-      setFavorited(false);
-      API.removeUserFavorite(user.id, game.gameId).then((response) => {});
     } else {
       alert("You need to be logged in to add this game to your favorites.");
     }
@@ -79,8 +69,26 @@ function GameInfo() {
           genres={game.genres}
           date={game.first_release_date}
         />
-        <InfoCard summary={game.summary} platform={game.platform} />
-        <MediaContainer />
+        <div >
+          <ul className="uk-tab" data-uk-tab="{connect: '#tabs'}">
+            <li>
+              <a href="#">ABOUT</a>
+            </li>
+            <li>
+              <a href="#">MEDIA</a>
+            </li>
+          </ul>
+
+          <ul id="tabs" className="uk-switcher uk-margin">
+            <li>
+              <InfoCard summary={game.summary} platform={game.platform} />
+            </li>
+
+            <li>
+              <MediaContainer />
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

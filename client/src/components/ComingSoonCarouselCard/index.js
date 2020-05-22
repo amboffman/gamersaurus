@@ -18,7 +18,7 @@ export default function index(props) {
       ratingElement = "";
       break;
     case (props.rating.toFixed(0)):
-      ratingElement = <p className="rating">{newRating}</p>
+      ratingElement = <p className="rating uk-position-small uk-position-bottom-right">{newRating}</p>
       break;
     default:
       break;

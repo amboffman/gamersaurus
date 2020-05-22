@@ -3,3 +3,11 @@
   max-height: 120px;
   min-height: 120px;
 }
+
+.rating{
+  padding: 1px 5px 1px 5px;
+  font-size: large;
+  color: white;
+  border-radius: 150px;
+  background-color: #43d87d;
+}
