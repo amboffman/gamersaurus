@@ -64,7 +64,7 @@ module.exports = {
   createGameFromIGDBData: (gameData) => {
     return gameData.map((game) => {
       const gameId = game.id;
-      const cover = game.cover;
+      const cover = game.cover.image_id;
       const {
         age_ratings,
         first_release_date,

@@ -12,23 +12,13 @@ function GameInfo() {
   const {id} = useParams();
   useEffect(() => {
     API.fetchGame(id).then((response) => {
-      console.log(response.data)
-      setGame(
-        // {
-      //     id: game.gameId,
-      //     name: game.name,
-      //     rating: game.aggregated_rating,
-      //     date:game.first_release_date,
-      //     cover: game.cover,
-      //     genres: game.genres,
-      //     summary: game.summary,
-      //     platforms: game.platforms
-      //   }
-      response.data[0]
-      );
+      setGame(response.data[0]);
     });
   }, []);
   console.log("New Game", game);
+
+  const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
+  console.log("image",image)
   return (
     <div className="GameInfo">
       <span id="closeButton">
@@ -38,7 +28,7 @@ function GameInfo() {
         <img
           className="uk-align-center"
           id="coverImage"
-          src="https://straffordchiropractic.com/wp-content/uploads/2017/04/poster-placeholder-203x300.png"
+          src={image}
         />
         <GameBanner name={game.name} rating={game.rating} genres={game.genres}/>
         <Carousel>
