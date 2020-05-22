@@ -3,6 +3,7 @@ import API from "./../utils/API";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 
+
 function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState("");
@@ -11,11 +12,16 @@ function Search() {
     event.preventDefault()
     console.log("Search", searchQuery)
     const fullSearch = `fields *; limit 15; search "${searchQuery}";`
-    API.fetchGames(fullSearch)
-      .then((response) => { setSearchResults(response.data) })
-      //test console for game responses
-      .then(() => { console.log(searchResults) });
+    API.fetchGames(fullSearch).then((response) => { setComingSoonGamesResults(response.data.map(game=>({
+      id: game.gameId,
+      name: game.name,
+      rating: game.aggregated_rating,
+      cover: game.cover.image_id
+    }))) })
+    //test console for game responses
+    .then(() => { console.log(searchResults) });
   }
+
   return (
     <div class="uk-margin .uk-align-center">
       <h1>On the Search page!</h1>
@@ -32,27 +38,11 @@ function Search() {
         />
         <button onClick={handleFormSubmit} type="button" >Go!</button>
       </form>
-
-      <div class="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
-        <div>
-          <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-          <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-          <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-          <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-          <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-        <div>
-          <div class="uk-card uk-card-default uk-card-body">Item</div>
-        </div>
-      </div>
+      <SearchResults>
+        {searchResults.map((game) => (
+          <SearchCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating}/> 
+        ))}
+      </SearchResults>
     </div>
   );
 }
