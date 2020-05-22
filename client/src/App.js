@@ -40,15 +40,15 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/:id">
-              <GameInfo />
-            </Route>
             <Route exact path="/search">
               <Search />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
+            <Route exact path="/:id">
+              <GameInfo />
+            </Route>
           </Switch>
         </div>
       </Router>
