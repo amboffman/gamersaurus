@@ -70,7 +70,6 @@ module.exports = {
         age_ratings,
         first_release_date,
         category,
-        genres,
         name,
         platforms,
         popularity,

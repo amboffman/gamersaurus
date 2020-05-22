@@ -40,7 +40,7 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/gameinfo">
+            <Route exact path="/gameinfo/:name">
               <GameInfo />
             </Route>
             <Route exact path="/search">
