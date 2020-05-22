@@ -22,9 +22,7 @@ export default function index(props) {
         <span id="title" className="uk-card-title">
           {props.name}
         </span>
-        <button onClick={ props.handleFavoriteGame } id="favoriteBtn" className="uk-button uk-position-center-right">
-          🤍 Favorite
-        </button>
+        {props.button}
         <p>
         {genres}
         </p>

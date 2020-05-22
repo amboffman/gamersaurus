@@ -9,8 +9,12 @@ import "./style.css";
 
 function GameInfo() {
   const [game, setGame] = useState({});
+  const [favorited, setFavorited] = useState(false);
   const { id } = useParams();
   const { user } = useAuth();
+  let button;
+
+  console.log(favorited);
 
   useEffect(() => {
     API.fetchGame(id).then((response) => {
@@ -18,11 +22,28 @@ function GameInfo() {
     });
   }, []);
 
-  function handleFavoriteGame(event) {
+  function addFavorite() {
     if (user) {
-      event.preventDefault();
-      API.addUserFavorite(user.id, game.gameId, game.name, game.cover, game.aggregated_rating).then((response) => {});
+      API.addUserFavorite(
+        user.id,
+        game.gameId,
+        game.name,
+        game.cover,
+        game.aggregated_rating
+      ).then((response) => {});
+    }
+  }
+
+  function handleButton(event) {
+    if (user) {
+      if (favorited) {
+      } else {
       }
+      event.preventDefault();
+      setFavorited(true);
+    } else {
+      alert("You need to be logged in to favorite a game.");
+    }
   }
 
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
@@ -38,7 +59,7 @@ function GameInfo() {
           rating={game.aggregated_rating}
           genres={game.genres}
           date={game.first_release_date}
-          handleFavoriteGame={handleFavoriteGame}
+          button={button}
         />
         <Carousel>
           <InfoCard summary={game.summary} platform={game.platform} />
