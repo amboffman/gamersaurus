@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
-import API from "./../utils/API";
-import {useAuth} from "../utils/auth";
-
+import API from "../../utils/API";
+import { useAuth } from "../../utils/auth";
+import "./style.css";
 
 function Signup() {
   const [formState, setFormState] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const { isLoggedIn } = useAuth();
@@ -19,33 +19,33 @@ function Signup() {
     return <Redirect to="/" />;
   }
 
-  const handleFormSubmit = event => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     API.signUpUser(formState.username, formState.email, formState.password)
-      .then(res => {
+      .then((res) => {
         // once the user has signed up
         // send them to the login page
         history.replace("/login");
       })
-      .catch(err => alert(err));
+      .catch((err) => alert(err));
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   };
 
   return (
-    <div className="container">
+    <div className="uk-container uk-align-center">
       <h1>Signup</h1>
       <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
+        <div className="uk-margin">
           <label htmlFor="username">Username:</label>
           <input
-            className="form-control"
+            className="uk-input"
             placeholder="Username goes here..."
             name="username"
             type="text"
@@ -53,10 +53,10 @@ function Signup() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div className="uk-margin">
           <label htmlFor="email">Email address:</label>
           <input
-            className="form-control"
+            className="uk-input"
             placeholder="Email goes here..."
             name="email"
             type="email"
@@ -64,10 +64,10 @@ function Signup() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-group">
+        <div className="uk-margin">
           <label htmlFor="pwd">Password:</label>
           <input
-            className="form-control"
+            className="uk-input"
             placeholder="Password goes here..."
             name="password"
             type="password"
@@ -75,12 +75,15 @@ function Signup() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="uk-button button">
           Submit
         </button>
       </form>
+
       <p>
-        <Link to="/login">Go to Login</Link>
+        <Link id="link" to="/login">
+          Go to Login
+        </Link>
       </p>
     </div>
   );

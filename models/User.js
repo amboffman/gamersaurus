@@ -35,7 +35,7 @@ const UserSchema = new Schema({
         type: String,
       },
       cover: {
-        type: Number,
+        type: String,
       },
       aggregated_rating: {
         type: Number,
