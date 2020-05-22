@@ -18,8 +18,13 @@
   color: white;
 }
 
+p {
+  margin: 3px 3px;
+}
+
 #favoriteBtn {
-  margin-top: 30px;
+  margin-top: 10px;
+  margin-right: 28px;
   float: right;
   background-color: gold;
   color: white;
@@ -44,6 +49,7 @@
     padding-left: 20%;
     padding-right: 20%;
   }
+  
 }
 
 @media screen and (min-width: 800px) {

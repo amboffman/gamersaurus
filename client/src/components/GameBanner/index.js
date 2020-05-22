@@ -22,12 +22,13 @@ export default function index(props) {
         <span id="title" className="uk-card-title">
           {props.name}
         </span>
+        <button onClick={ props.handleFavoriteGame } id="favoriteBtn" className="uk-button uk-position-center-right">
+          🤍 Favorite
+        </button>
         <p>
         {genres}
         </p>
-        <button id="favoriteBtn" className="uk-button">
-          🤍 Favorite
-        </button>
+
         <p id="year">{props.date ? `${releaseDate}` : ""}</p>
       </div>
     </div>

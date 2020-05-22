@@ -9,12 +9,21 @@ import "./style.css";
 
 function GameInfo() {
   const [game, setGame] = useState({});
-  const {id} = useParams();
+  const { id } = useParams();
+  const { user } = useAuth();
+
   useEffect(() => {
     API.fetchGame(id).then((response) => {
       setGame(response.data[0]);
     });
   }, []);
+
+  function handleFavoriteGame(event) {
+    if (user) {
+      event.preventDefault();
+      API.addUserFavorite(user.id, game.gameId, game.name, game.cover, game.aggregated_rating).then((response) => {});
+      }
+  }
 
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
   return (
@@ -23,21 +32,16 @@ function GameInfo() {
         <Link to="/">✖</Link>
       </span>
       <div className="">
-        <img
-          className="uk-align-center"
-          id="coverImage"
-          src={image}
+        <img className="uk-align-center" id="coverImage" src={image} />
+        <GameBanner
+          name={game.name}
+          rating={game.aggregated_rating}
+          genres={game.genres}
+          date={game.first_release_date}
+          handleFavoriteGame={handleFavoriteGame}
         />
-        <GameBanner 
-        name={game.name} 
-        rating={game.aggregated_rating} 
-        genres={game.genres} 
-        date={game.first_release_date}/>
         <Carousel>
-          <InfoCard 
-          summary={game.summary}
-          platform={game.platform}
-          />
+          <InfoCard summary={game.summary} platform={game.platform} />
           <InfoCard />
           <InfoCard />
         </Carousel>
