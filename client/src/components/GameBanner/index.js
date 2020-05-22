@@ -2,6 +2,11 @@ import React from "react";
 import "./style.css";
 
 export default function index(props) {
+  const multi = props.date * 1000;
+  const myDate = new Date(multi);
+  const releaseDate = myDate.toLocaleString("en-US", {
+    year: "numeric",
+  });
   let genres;
   if (props.genres) {
     genres = props.genres.map((g) => {
@@ -23,7 +28,7 @@ export default function index(props) {
         <button id="favoriteBtn" className="uk-button">
           🤍 Favorite
         </button>
-        <p id="year">2020</p>
+        <p id="year">{props.date ? `${releaseDate}` : ""}</p>
       </div>
     </div>
   );
