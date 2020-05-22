@@ -3,13 +3,13 @@ import API from "../../utils/API";
 import { Link, useParams } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
-import Carousel from "../../components/Carousel/index";
 import GameBanner from "../../components/GameBanner";
+import MediaContainer from "../../components/MediaContainer";
 import "./style.css";
 
 function GameInfo() {
   const [game, setGame] = useState({});
-  const {id} = useParams();
+  const { id } = useParams();
   useEffect(() => {
     API.fetchGame(id).then((response) => {
       setGame(response.data[0]);
@@ -28,19 +28,17 @@ function GameInfo() {
           id="coverImage"
           src={image}
         />
-        <GameBanner 
-        name={game.name} 
-        rating={game.aggregated_rating} 
-        genres={game.genres} 
-        date={game.first_release_date}/>
-        <Carousel>
-          <InfoCard 
+        <GameBanner
+          name={game.name}
+          rating={game.aggregated_rating}
+          genres={game.genres}
+          date={game.first_release_date} />
+        <InfoCard
           summary={game.summary}
           platform={game.platform}
-          />
-          <InfoCard />
-          <InfoCard />
-        </Carousel>
+        />
+        <MediaContainer />
+
       </div>
     </div>
   );
