@@ -1,0 +1,17 @@
+.card {
+  position: relative;
+}
+
+.rating{
+  padding: 1px 5px 1px 5px;
+  font-size: large;
+  color: white;
+  border-radius: 150px;
+  background-color: #43d87d;
+}
+
+.cardBody {
+  padding: 5px 5px 5px 5px;
+  max-height: 100px;
+  min-height: 100px;
+}
