@@ -10,9 +10,7 @@ export default function index(props) {
 
         <div className="toggle">
           <p>
-            Escape to a deserted island and create your own paradise as you
-            explore, create, and customize in the Animal Crossing: New Horizons
-            game. Your island getaway
+            {props.summary}
             <span className="toggle readMore" uk-toggle="target: .toggle">
               ...Read More
             </span>
