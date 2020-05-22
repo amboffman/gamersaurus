@@ -90,7 +90,11 @@ function GameInfo() {
             </li>
 
             <li>
-              <MediaContainer />
+              <MediaContainer 
+              screenshots={game.screenshots}
+              name={game.name}
+              />
+              
             </li>
           </ul>
         </div>
