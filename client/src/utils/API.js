@@ -37,8 +37,6 @@ export default {
   },
 
   fetchGame:(gameID) => {
-    return axios.get("api/igdbgame", {
-      params: { q: gameID },
-    });
+    return axios.get(`api/igdbgame/${gameID}`)
   }
 };

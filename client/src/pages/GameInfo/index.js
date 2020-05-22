@@ -8,26 +8,27 @@ import GameBanner from "../../components/GameBanner";
 import "./style.css";
 
 function GameInfo() {
-  const [game, setGame] = useState([]);
-  const {name} = useParams();
+  const [game, setGame] = useState({});
+  const {id} = useParams();
   useEffect(() => {
-  if(!name){
-    return;
-  }
-    API.fetchGame(name).then((response) => {
+    API.fetchGame(id).then((response) => {
+      console.log(response.data)
       setGame(
-        response.data.map((game) => ({
-          id: game.gameId,
-          name: game.name,
-          rating: game.aggregated_rating,
-          cover: game.cover.image_id,
-          genres: game.genres,
-          summary: game.summary,
-          platforms: game.platforms
-        }))
+        // {
+      //     id: game.gameId,
+      //     name: game.name,
+      //     rating: game.aggregated_rating,
+      //     date:game.first_release_date,
+      //     cover: game.cover,
+      //     genres: game.genres,
+      //     summary: game.summary,
+      //     platforms: game.platforms
+      //   }
+      response.data[0]
       );
     });
   }, []);
+  console.log("New Game", game);
   return (
     <div className="GameInfo">
       <span id="closeButton">
@@ -39,7 +40,7 @@ function GameInfo() {
           id="coverImage"
           src="https://straffordchiropractic.com/wp-content/uploads/2017/04/poster-placeholder-203x300.png"
         />
-        <GameBanner />
+        <GameBanner name={game.name} rating={game.rating} genres={game.genres}/>
         <Carousel>
           <InfoCard />
           <InfoCard />

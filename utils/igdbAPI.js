@@ -65,11 +65,11 @@ module.exports = {
     return gameData.map((game) => {
       const gameId = game.id;
       const cover = game.cover;
-      const genres = game.genre.name;
       const {
         age_ratings,
         first_release_date,
         category,
+        genres,
         name,
         platforms,
         popularity,
