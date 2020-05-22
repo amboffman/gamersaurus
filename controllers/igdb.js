@@ -1,24 +1,23 @@
 const express = require("express");
 const axios = require("axios");
+const IGDBAPI = require("../utils/igdbAPI")
 
 const router = express.Router();
+// ROUTES NEEDED
+// Trending Games with title, rating & cover
+// Coming Soon with title, rating & cover
+// 
 
 router.get("/igdbgames", (req, res) => {
-  axios({
-    url: "https://api-v3.igdb.com/games",
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "user-key": process.env.API_Key,
-    },
-    data: req.query.q,
-  })
-    .then((response) => {
-      const igdbData = createGameFromIGDBData(response.data);
-      return res.json(igdbData);
+  IGDBAPI.fetchgames(req.query.q)
+    .then((gameData) => {
+      const games = IGDBAPI.createGameFromIGDBData(gameData);
+      return res.json(games);
     })
     .catch((error) => {
       // handle errors
+      console.log(error);
+      console.log(error.request.url)
       if (error.response) {
         res.sendStatus(error.response.status);
       } else {
@@ -27,44 +26,11 @@ router.get("/igdbgames", (req, res) => {
     });
 });
 
-function createGameFromIGDBData(IGDBData) {
-  return IGDBData.map((item) => {
-    const gameId = item.id;
-    const {
-      age_ratings,
-      cover,
-      first_release_date,
-      genres,
-      name,
-      platforms,
-      popularity,
-      aggregated_rating,
-      screenshots,
-      summary,
-      videos,
-    } = item;
-    return {
-      gameId,
-      age_ratings,
-      cover,
-      first_release_date,
-      genres,
-      name,
-      platforms,
-      popularity,
-      aggregated_rating,
-      screenshots,
-      summary,
-      videos,
-    };
-  });
-}
-
 module.exports = router;
 
 // const fakeIGDBData = [
 //   {
-//       "gameId": 115278,
+//       "id": 115278,
 //       "age_ratings": [
 //           25494
 //       ],
