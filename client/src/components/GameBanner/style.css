@@ -34,6 +34,18 @@ p {
   padding-right: 10px;
 }
 
+#favoritedBtn {
+  margin-top: 10px;
+  margin-right: 28px;
+  float: right;
+  background-color: grey;
+  color: white;
+  border: 1px, solid, grey;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 #tags {
   margin-top: 3px;
   margin-bottom: 3px;
