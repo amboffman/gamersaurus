@@ -38,9 +38,6 @@ function GameInfo() {
           summary={game.summary}
           platforms={game.platforms}
           />
-          <InfoCard />
-          <InfoCard />
-        </Carousel>
       </div>
     </div>
   );

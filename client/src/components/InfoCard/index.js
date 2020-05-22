@@ -2,7 +2,12 @@ import React from "react";
 import "./style.css";
 
 export default function index(props) {
-console.log("P", props.platform)
+  let platforms;
+  if (props.platforms) {
+    platforms = props.platforms.map((p) => {
+      return p.abbreviation
+    }).join(", ");
+  }
   return (
     <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
       <h3 className="uk-card-title">Summary</h3>
@@ -37,7 +42,7 @@ console.log("P", props.platform)
       <p className="subCategory">Rated</p>
       <span>E</span>
       <p className="subCategory">Platforms</p>
-      <span>{props.platform}🎮</span>
+      <span>{platforms}</span>
     </div>
   );
 }

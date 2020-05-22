@@ -60,7 +60,6 @@ module.exports = {
     });
   },
   createGameFromIGDBData: (gameData) => {
-    console.log(gameData)
     return gameData.map((game) => {
       const gameId = game.id;
       const cover = game.cover.image_id;
