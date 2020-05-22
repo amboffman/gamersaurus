@@ -17,8 +17,7 @@ function Profile() {
 
   return (
     <div className="container Profile">
-      <h1>On the profile page!</h1>
-      <p>Username: {username}</p>
+      <h1>HELLO {username}</h1>
       <p>Email: {email}</p>
       <Link to="/">Go home</Link>
     </div>
