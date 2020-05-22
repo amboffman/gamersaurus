@@ -34,23 +34,23 @@ function GameInfo() {
           genres={game.genres}
           date={game.first_release_date} />
         <div>
-          <ul className = "uk-tab" data-uk-tab = "{connect: '#tabs'}">
+          <ul className="uk-tab" data-uk-tab="{connect: '#tabs'}">
             <li><a href="#">MEDIA</a></li>
             <li><a href="#">ABOUT</a></li>
           </ul>
 
-          <ul id= "tabs"className="uk-switcher uk-margin">
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-            <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+          <ul id="tabs" className="uk-switcher uk-margin">
+            <li>
+              <MediaContainer />
+            </li>
+            <li>
+              <InfoCard
+                summary={game.summary}
+                platform={game.platform}
+              />
+            </li>
           </ul>
         </div>
-
-        <InfoCard
-          summary={game.summary}
-          platform={game.platform}
-        />
-        <MediaContainer />
-
       </div>
     </div>
   );
