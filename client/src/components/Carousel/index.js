@@ -11,9 +11,6 @@ function Carousel(props) {
                     {props.children}
                 </ul>
 
-                <a className="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                <a className="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
             </div>
 
             <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>

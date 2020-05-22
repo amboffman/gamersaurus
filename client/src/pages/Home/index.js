@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import logo from "./logo.svg";
 import "./home.css";
 import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";

@@ -49,8 +49,8 @@ function NavLinks() {
 function Navbar() {
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown"> 
-    <nav className="uk-navbar-container" uk-navbar>
-      <div className="uk-navbar">
+    <nav className="uk-navbar uk-navbar-container" uk-navbar>
+      <div className="uk-navbar-center">
         <ul className="uk-navbar-nav">
           <li>
             <Link className="navbar-logo" to="/">
