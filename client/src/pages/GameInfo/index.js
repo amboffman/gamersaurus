@@ -28,9 +28,16 @@ function GameInfo() {
           id="coverImage"
           src={image}
         />
-        <GameBanner name={game.name} rating={game.rating} genres={game.genres}/>
+        <GameBanner 
+        name={game.name} 
+        rating={game.aggregated_rating} 
+        genres={game.genres} 
+        date={game.first_release_date}/>
         <Carousel>
-          <InfoCard summary={game.summary}/>
+          <InfoCard 
+          summary={game.summary}
+          platform={game.platform}
+          />
           <InfoCard />
           <InfoCard />
         </Carousel>
