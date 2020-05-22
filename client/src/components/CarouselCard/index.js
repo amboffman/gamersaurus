@@ -29,8 +29,8 @@ export default function index(props) {
     <li>
       <Link to={"/" + props.id}>
       <div className="card uk-card uk-card-default">
-        <div className="uk-card-media-top">
-          <img src={image} alt={props.name}/>
+        <div className="cardImage  uk-card-media-top">
+          <img  src={image} alt={props.name}/>
           {ratingElement}
         </div>
         <div className="cardBody uk-card-body">
