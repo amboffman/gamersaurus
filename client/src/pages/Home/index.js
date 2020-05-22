@@ -81,6 +81,7 @@ function Home() {
         {recentReleaseResults.map((game) => (
           <CarouselCard
             key={game.id}
+            id={game.id}
             cover={game.cover}
             name={game.name}
             rating={game.rating}
@@ -92,6 +93,7 @@ function Home() {
         {comingSoonGamesResults.map((game) => (
           <CarouselCard
             key={game.id}
+            id={game.id}
             cover={game.cover}
             name={game.name}
             rating={game.rating}
