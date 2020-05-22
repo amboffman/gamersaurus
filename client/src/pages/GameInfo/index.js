@@ -17,6 +17,7 @@ function GameInfo() {
   }, []);
 
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
+
   return (
     <div className="GameInfo">
       <span id="closeButton">
@@ -36,7 +37,7 @@ function GameInfo() {
         <Carousel>
           <InfoCard 
           summary={game.summary}
-          platform={game.platform}
+          platforms={game.platforms}
           />
           <InfoCard />
           <InfoCard />

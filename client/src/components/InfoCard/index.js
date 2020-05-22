@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 
 export default function index(props) {
+console.log("P", props.platform)
   return (
     <li>
       <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
