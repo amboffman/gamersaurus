@@ -16,7 +16,7 @@ function GameInfo() {
 
   useEffect(() => {
     API.fetchGame(id).then((response) => {
-      setGame(response.data[0]);    
+      setGame(response.data[0]);
     });
   }, []);
 
@@ -70,7 +70,7 @@ function GameInfo() {
           genres={game.genres}
           date={game.first_release_date}
         />
-        <div >
+        <div className="uk-container uk-align-center">
           <ul className="uk-tab" data-uk-tab="{connect: '#tabs'}">
             <li>
               <a href="#">ABOUT</a>
@@ -82,7 +82,11 @@ function GameInfo() {
 
           <ul id="tabs" className="uk-switcher uk-margin">
             <li>
-              <InfoCard summary={game.summary} platform={game.platform} age_ratings={game.age_ratings} />
+              <InfoCard
+                summary={game.summary}
+                platforms={game.platforms}
+                age_ratings={game.age_ratings}
+              />
             </li>
 
             <li>
