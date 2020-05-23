@@ -19,6 +19,18 @@ function GameInfo() {
       setGame(response.data[0]);
     });
   }, []);
+  
+  if (user) {
+    API.getUser(user.id).then((res) => {
+      const favorites = res.data.favorites;
+      for (let i = 0; i < favorites.length; i += 1) {
+        if (favorites[i].id === game.gameId) {
+          setFavorited(true);
+          
+        }
+      }
+    });
+  }
 
   function addFavorite(event) {
     event.preventDefault();
@@ -30,7 +42,7 @@ function GameInfo() {
         game.name,
         game.cover,
         game.aggregated_rating
-      ).then((response) => {});
+      ).then(() => {});
     } else {
       alert("You need to be logged in to add this game to your favorites.");
     }
@@ -90,11 +102,7 @@ function GameInfo() {
             </li>
 
             <li>
-              <MediaContainer 
-              screenshots={game.screenshots}
-              name={game.name}
-              />
-              
+              <MediaContainer screenshots={game.screenshots} name={game.name} />
             </li>
           </ul>
         </div>
