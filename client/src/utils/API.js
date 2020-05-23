@@ -60,6 +60,13 @@ export default {
     });
   },
 
+  fetchSimilarGames:(sg) => {
+    const ids = sg.join(",")
+    return axios.get("api/igdbgames", {
+      params: { q: `fields name, cover.image_id, first_release_date, aggregated_rating; where id= (${ids}) & themes != (42) & category = 0 & first_release_date != null & cover != null; limit 10;`},
+    });
+  },
+
   searchGame:(id) => {
     return axios.get(`api/igdbgame/${id}`, { params: {q:`fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
     where id=${id};`},})
