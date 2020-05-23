@@ -13,8 +13,6 @@ function Home() {
 
   const goToEditProfile = () => history.push("/profile");
 
-  const currentDate = Math.floor(Date.now() / 1000);
-
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
   const [comingSoonGamesResults, setComingSoonGamesResults] = useState([]);
   const [recentReleaseResults, setRecentReleaseResults] = useState([]);
