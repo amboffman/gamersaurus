@@ -5,28 +5,30 @@ import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
 import GameBanner from "../../components/GameBanner";
 import MediaContainer from "../../components/MediaContainer";
+import Modal from "../../components/Modal";
 import "./style.css";
 
 function GameInfo() {
   const [game, setGame] = useState({});
   const [favorited, setFavorited] = useState(false);
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
   const { id } = useParams();
   const { user } = useAuth();
-  let button;
+  let favButton;
 
   useEffect(() => {
     API.fetchGame(id).then((response) => {
       setGame(response.data[0]);
     });
   }, []);
-  
+
   if (user) {
     API.getUser(user.id).then((res) => {
       const favorites = res.data.favorites;
       for (let i = 0; i < favorites.length; i += 1) {
         if (favorites[i].id === game.gameId) {
           setFavorited(true);
-          
         }
       }
     });
@@ -44,18 +46,18 @@ function GameInfo() {
         game.aggregated_rating
       ).then(() => {});
     } else {
-      alert("You need to be logged in to add this game to your favorites.");
+      setModal(true);
     }
   }
 
   if (favorited === true) {
-    button = (
+    favButton = (
       <button id="favoritedBtn" className="uk-button uk-position-center-right">
         Favorited
       </button>
     );
   } else {
-    button = (
+    favButton = (
       <button
         onClick={addFavorite}
         id="favoriteBtn"
@@ -67,7 +69,6 @@ function GameInfo() {
   }
 
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
-  console.log("AR", game);
   return (
     <div className="GameInfo">
       <span id="closeButton">
@@ -76,7 +77,7 @@ function GameInfo() {
       <div className="">
         <img className="uk-align-center" id="coverImage" src={image} />
         <GameBanner
-          button={button}
+          button={favButton}
           name={game.name}
           rating={game.aggregated_rating}
           genres={game.genres}
@@ -106,6 +107,12 @@ function GameInfo() {
             </li>
           </ul>
         </div>
+        <Modal
+          toggle={toggle}
+          modal={modal}
+          buttonLabel={"toggle"}
+          className={"favAlert"}
+        />
       </div>
     </div>
   );
