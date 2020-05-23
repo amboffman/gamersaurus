@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 //import "./style.css"
 
-export default function gameCard(props) {
+export default function GameCard(props) {
   const image = props.cover ? (`https://images.igdb.com/igdb/image/upload/t_cover_big/${props.cover}.jpg`) : ("");
   const newRating = props.rating ? ("Rating: " + props.rating.toFixed(0)) : "";
   return (
