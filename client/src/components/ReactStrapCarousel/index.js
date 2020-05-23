@@ -22,13 +22,13 @@ const ReactStrapCarousel = (props) => {
 
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex = activeIndex === screenshots.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   }
 
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    const nextIndex = activeIndex === 0 ? screenshots.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   }
 
@@ -37,14 +37,14 @@ const ReactStrapCarousel = (props) => {
     setActiveIndex(newIndex);
   }
 
-  const slides = items.map((item) => {
+  const slides = screenshots.map((screenshot) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={screenshot.id}
       >
-        <img src={item.src} alt={item.altText} />
+        <img src={screenshot.imageId} alt="screenshot" />
       </CarouselItem>
     );
   });
