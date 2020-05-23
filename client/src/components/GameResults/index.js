@@ -1,13 +1,20 @@
 import React from 'react'
-//import "./style.css"
+import "./style.css"
 
 function GameResults(props) {
     return (
-        <div className="uk-child-width-expand@s uk-text-center" uk-grid uk-height-match="target: > div > .uk-card">
-            <div>
-                <div className="uk-card uk-card-default uk-card-body uk-flex-center uk-child-width-1-6">{props.children}</div>
-            </div>
+        <div uk-slider="center: true">
+        <div
+          className="uk-position-relative uk-visible-toggle uk-light"
+          tabindex="-1"
+        >
+          <ul className="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-5@m uk-grid">
+            {props.children}
+          </ul>
         </div>
+  
+        <ul className="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+      </div>
     )
 }
 
