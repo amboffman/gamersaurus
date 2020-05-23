@@ -23,7 +23,7 @@ router.get("/igdbgames", (req, res) => {
 });
 
 router.get("/igdbgame/:id", (req, res) => {
-  const gameToSearch = `fields cover.image_id, name, genres.name, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
+  const gameToSearch = `fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
   where id=${req.params.id};`
   IGDBAPI.fetchgame(gameToSearch)
     .then((gameData) => {
