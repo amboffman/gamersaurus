@@ -13,8 +13,7 @@ function Search() {
   function handleFormSubmit(event) {
     event.preventDefault()
     console.log("Search", searchQuery)
-    const fullSearch = `fields name, cover.image_id, aggregated_rating; limit 15; w cover != null & themes != (42); search "${searchQuery}";`
-    API.fetchGames(fullSearch).then((response) => { console.log(response); setSearchResults(response.data.map(game=>({
+    API.searchGames(searchQuery).then((response) => { console.log(response); setSearchResults(response.data.map(game=>({
       id: game.id,
       name: game.name,
       rating: game.aggregated_rating,

@@ -33,9 +33,9 @@ export default {
     });
   },
     
-  fetchGames:(searchType) => {
+  searchGames:(searchQuery) => {
     return axios.get("api/igdbgames", {
-      params: { q: searchType },
+      params: { q: `fields name, cover.image_id, aggregated_rating; limit 15; w cover != null & themes != (42); search "${searchQuery}";` },
     });
   },
   fetchTrendingGames:() => {
