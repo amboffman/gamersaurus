@@ -4,7 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
 import GameBanner from "../../components/GameBanner";
-import MediaContainer from "../../components/MediaContainer";
+// import MediaContainer from "../../components/MediaContainer";
+import ReactStrapCarousel from "../../components/ReactStrapCarousel";
 import Modal from "../../components/Modal";
 import "./style.css";
 
@@ -103,7 +104,7 @@ function GameInfo() {
             </li>
 
             <li>
-              <MediaContainer screenshots={game.screenshots} name={game.name} />
+              <ReactStrapCarousel screenshots={game.screenshots} name={game.name} />
             </li>
           </ul>
         </div>
