@@ -1,9 +1,9 @@
 .card {
-    position: relative;
-  }
+  position: relative;
+}
 
-  .cardBody {
-    padding: 5px 5px 5px 5px;
-    max-height: 100px;
-    min-height: 100px;
-  }
+.cardBody {
+  padding: 5px 5px 5px 5px;
+  max-height: 100px;
+  min-height: 100px;
+}
