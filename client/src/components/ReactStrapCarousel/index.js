@@ -4,7 +4,6 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
 } from 'reactstrap';
 
 const ReactStrapCarousel = (props) => {
@@ -46,7 +45,6 @@ const ReactStrapCarousel = (props) => {
         key={item.src}
       >
         <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
       </CarouselItem>
     );
   });
