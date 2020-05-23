@@ -34,8 +34,6 @@ router.get("/igdbgames", (req, res) => {
 });
 
 router.get("/igdbgame/:id", (req, res) => {
-  const gameToSearch = `fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
-  where id=${req.params.id};`;
   return axios({
     url: "https://api-v3.igdb.com/games",
     method: "POST",
@@ -43,7 +41,7 @@ router.get("/igdbgame/:id", (req, res) => {
       Accept: "application/json",
       "user-key": process.env.API_Key,
     },
-    data: gameToSearch,
+    data: req.query.q,
   })
     .then((response) => {
       return response.data;

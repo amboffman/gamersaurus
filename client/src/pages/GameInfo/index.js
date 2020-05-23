@@ -15,7 +15,7 @@ function GameInfo() {
   let button;
 
   useEffect(() => {
-    API.fetchGame(id).then((response) => {
+    API.searchGame(id).then((response) => {
       setGame(response.data[0]);
     });
   }, []);
