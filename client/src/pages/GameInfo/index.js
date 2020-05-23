@@ -26,7 +26,7 @@ function GameInfo() {
       setFavorited(true);
       API.addUserFavorite(
         user.id,
-        game.gameId,
+        game.id,
         game.name,
         game.cover,
         game.aggregated_rating
@@ -55,7 +55,6 @@ function GameInfo() {
   }
 
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
-  console.log("AR", game);
   return (
     <div className="GameInfo">
       <span id="closeButton">

@@ -1,11 +1,22 @@
 const express = require("express");
-// const axios = require("axios");
+const axios = require("axios");
 const IGDBAPI = require("../utils/igdbAPI");
 
 const router = express.Router();
 
 router.get("/igdbgames", (req, res) => {
-  IGDBAPI.fetchgames(req.query.q)
+  return axios({
+    url: "https://api-v3.igdb.com/games",
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "user-key": process.env.API_Key,
+    },
+    data: req.query.q,
+  })
+    .then((response) => {
+      return response.data;
+    })
     .then((gameData) => {
       const games = IGDBAPI.createGamesFromIGDBData(gameData);
       return res.json(games);
@@ -24,8 +35,19 @@ router.get("/igdbgames", (req, res) => {
 
 router.get("/igdbgame/:id", (req, res) => {
   const gameToSearch = `fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
-  where id=${req.params.id};`
-  IGDBAPI.fetchgame(gameToSearch)
+  where id=${req.params.id};`;
+  return axios({
+    url: "https://api-v3.igdb.com/games",
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "user-key": process.env.API_Key,
+    },
+    data: gameToSearch,
+  })
+    .then((response) => {
+      return response.data;
+    })
     .then((gameData) => {
       const games = IGDBAPI.createGameFromIGDBData(gameData);
       return res.json(games);
@@ -33,7 +55,7 @@ router.get("/igdbgame/:id", (req, res) => {
     .catch((error) => {
       // handle errors
       console.log(error);
-      console.log(error.request.url)
+      console.log(error.request.url);
       if (error.response) {
         res.sendStatus(error.response.status);
       } else {

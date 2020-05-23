@@ -27,7 +27,7 @@ function Home() {
     API.fetchGames(trendingGameSearch).then((response) => {
       setTrendingGamesResults(
         response.data.map((game) => ({
-          id: game.gameId,
+          id: game.id,
           name: game.name,
           rating: game.aggregated_rating,
           cover: game.cover.image_id,
@@ -40,7 +40,7 @@ function Home() {
     API.fetchGames(recentReleaseSearch).then((response) => {
       setRecentReleaseResults(
         response.data.map((game) => ({
-          id: game.gameId,
+          id: game.id,
           name: game.name,
           rating: game.aggregated_rating,
           cover: game.cover.image_id,
@@ -53,7 +53,7 @@ function Home() {
     API.fetchGames(comingSoonGameSearch).then((response) => {
       setComingSoonGamesResults(
         response.data.map((game) => ({
-          id: game.gameId,
+          id: game.id,
           name: game.name,
           rating: game.aggregated_rating,
           date: game.first_release_date,

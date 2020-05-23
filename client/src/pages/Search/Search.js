@@ -15,7 +15,7 @@ function Search() {
     console.log("Search", searchQuery)
     const fullSearch = `fields name, cover.image_id, aggregated_rating; limit 15; w cover != null & themes != (42); search "${searchQuery}";`
     API.fetchGames(fullSearch).then((response) => { console.log(response); setSearchResults(response.data.map(game=>({
-      id: game.gameId,
+      id: game.id,
       name: game.name,
       rating: game.aggregated_rating,
       cover: game.cover.image_id
