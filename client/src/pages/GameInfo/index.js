@@ -18,7 +18,7 @@ function GameInfo() {
   let favButton;
 
   useEffect(() => {
-    API.fetchGame(id).then((response) => {
+    API.searchGame(id).then((response) => {
       setGame(response.data[0]);
     });
   }, []);
@@ -40,7 +40,7 @@ function GameInfo() {
       setFavorited(true);
       API.addUserFavorite(
         user.id,
-        game.gameId,
+        game.id,
         game.name,
         game.cover,
         game.aggregated_rating

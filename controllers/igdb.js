@@ -1,45 +1,47 @@
-const express = require("express");
-// const axios = require("axios");
-const IGDBAPI = require("../utils/igdbAPI");
-
-const router = express.Router();
-
-router.get("/igdbgames", (req, res) => {
-  IGDBAPI.fetchgames(req.query.q)
-    .then((gameData) => {
-      const games = IGDBAPI.createGamesFromIGDBData(gameData);
-      return res.json(games);
-    })
-    .catch((error) => {
-      // handle errors
-      console.log(error);
-      console.log(error.request.url);
-      if (error.response) {
-        res.sendStatus(error.response.status);
-      } else {
-        res.sendStatus(500);
-      }
+module.exports = {
+createGamesFromIGDBData: (gameData) => {
+    return gameData.map((game) => {
+      return {
+        id,
+        cover,
+        first_release_date,
+        name,
+        aggregated_rating,
+      } = game;
     });
-});
-
-router.get("/igdbgame/:id", (req, res) => {
-  const gameToSearch = `fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
-  where id=${req.params.id};`
-  IGDBAPI.fetchgame(gameToSearch)
-    .then((gameData) => {
-      const games = IGDBAPI.createGameFromIGDBData(gameData);
-      return res.json(games);
-    })
-    .catch((error) => {
-      // handle errors
-      console.log(error);
-      console.log(error.request.url)
-      if (error.response) {
-        res.sendStatus(error.response.status);
-      } else {
-        res.sendStatus(500);
-      }
+  },
+  createGameFromIGDBData: (gameData) => {
+    return gameData.map((game) => {
+      const cover = game.cover.image_id;
+      const {
+        age_ratings,
+        first_release_date,
+        category,
+        genres,
+        id,
+        name,
+        platforms,
+        popularity,
+        aggregated_rating,
+        screenshots,
+        summary,
+        videos,
+      } = game;
+      return {
+        age_ratings,
+        category,
+        cover,
+        first_release_date,
+        genres,
+        id,
+        name,
+        platforms,
+        popularity,
+        aggregated_rating,
+        screenshots,
+        summary,
+        videos,
+      };
     });
-});
-
-module.exports = router;
+  },
+};
