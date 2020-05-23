@@ -38,13 +38,14 @@ const ReactStrapCarousel = (props) => {
   }
 
   const slides = screenshots.map((screenshot) => {
+    const srcURL = `https://images.igdb.com/igdb/image/upload/t_screenshot_big/${screenshot.imageId}.jpg`
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={screenshot.id}
       >
-        <img src={screenshot.imageId} alt="screenshot" />
+        <img src={srcURL} alt="screenshot" />
       </CarouselItem>
     );
   });
