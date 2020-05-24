@@ -20,7 +20,6 @@ function GameInfo() {
 
   useEffect(() => {
     API.searchGame(id).then((response) => {
-      console.log('API CALL 1', response)
       setGame(response.data[0]);
     });
   }, []);
