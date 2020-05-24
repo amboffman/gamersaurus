@@ -1,3 +1,11 @@
 #welcome-banner {
-    background-color: #9933ff;
+  background-color: #9933ff;
+}
+#brand-name {
+  color: white;
+  text-align: right;
+}
+
+.gif {
+  width: 150px;
 }
