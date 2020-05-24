@@ -1,0 +1,20 @@
+#welcome-banner {
+  background-color: #9933ff;
+}
+
+.brand-name {
+    color: white;
+    text-align: left;
+  
+  }
+
+.banner-text {
+  color: white;
+  text-align: left;
+
+}
+
+.gif {
+  width: 130px;
+  float: left;
+}
