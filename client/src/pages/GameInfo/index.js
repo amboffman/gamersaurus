@@ -27,7 +27,7 @@ function GameInfo() {
     API.getUser(user.id).then((res) => {
       const favorites = res.data.favorites;
       for (let i = 0; i < favorites.length; i += 1) {
-        if (favorites[i].id === game.gameId) {
+        if (favorites[i].id === game.id) {
           setFavorited(true);
         }
       }
