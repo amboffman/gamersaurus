@@ -5,6 +5,7 @@ import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
 import GameBanner from "../../components/GameBanner";
 import MediaContainer from "../../components/MediaContainer";
+import VideoTrailer from "../../components/VideoTrailer";
 import Modal from "../../components/Modal";
 import "./style.css";
 
@@ -88,9 +89,12 @@ function GameInfo() {
             <li>
               <a href="#">MEDIA</a>
             </li>
+            <li>
+              <a href="#">TRAILER</a>
+            </li>
           </ul>
 
-          <ul id="tabs" className="uk-switcher uk-margin">
+          <ul id="tabs" className="uk-switcher uk-margin uk-slideshow">
             <li>
               <InfoCard
                 summary={game.summary}
@@ -101,6 +105,9 @@ function GameInfo() {
 
             <li>
               <MediaContainer screenshots={game.screenshots} name={game.name} />
+            </li>
+            <li>
+              <VideoTrailer />
             </li>
           </ul>
         </div>
