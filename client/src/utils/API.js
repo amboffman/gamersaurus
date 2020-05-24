@@ -1,4 +1,7 @@
 import axios from "axios";
+
+const currentDate = Math.floor(Date.now() / 1000);
+
 export default {
   // Gets a single user by id
   getUser: (id) => {
@@ -35,8 +38,30 @@ export default {
       params: { q: searchType },
     });
   },
+  fetchTrendingGames:() => {
+    return axios.get("api/igdbgames", {
+      params: { q: `
+      fields name, cover.image_id, aggregated_rating, category; limit 10; 
+      where first_release_date < ${currentDate} & first_release_date > ${
+        currentDate - 7889229
+      } & cover != null & themes != (42) & category = 0; sort popularity desc;` },
+    });
+  },
 
-  fetchGame:(gameID) => {
-    return axios.get(`api/igdbgame/${gameID}`)
+  fetchRecentReleases:() => {
+    return axios.get("api/igdbgames", {
+      params: { q: `fields name, cover.image_id, aggregated_rating; limit 15; where first_release_date <= ${currentDate} & cover != null & themes != (42) & category = 0; sort first_release_date desc;`},
+    });
+  },
+
+  fetchComingSoon:() => {
+    return axios.get("api/igdbgames", {
+      params: { q: `fields name, cover.image_id, first_release_date, aggregated_rating; where first_release_date > ${currentDate} & themes != (42) & category = 0 & first_release_date != null & cover != null; sort first_release_date asc;`},
+    });
+  },
+
+  searchGame:(id) => {
+    return axios.get(`api/igdbgame/${id}`, { params: {q:`fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
+    where id=${id};`},})
   }
 };
