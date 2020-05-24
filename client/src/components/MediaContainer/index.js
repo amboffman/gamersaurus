@@ -23,7 +23,6 @@ function MediaContainer(props) {
                 <ScreenshotsCard key= {game.id} imageId = {game.imageId}/>
               ))}
             </MediaCarousel>
-            <h3 >Trailer</h3>
         </div>
     )
 }
