@@ -3,4 +3,5 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-image: url("/assets/images/subtlebackground.png");
+  min-height: 100vh;
 }

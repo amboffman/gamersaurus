@@ -54,7 +54,7 @@ function GameInfo() {
 
   if (favorited === true) {
     favButton = (
-      <button id="favoritedBtn" className="uk-button uk-position-center-right">
+      <button id="favoritedBtn" className="uk-button">
         Favorited
       </button>
     );
@@ -63,7 +63,7 @@ function GameInfo() {
       <button
         onClick={addFavorite}
         id="favoriteBtn"
-        className="uk-button uk-position-center-right"
+        className="uk-button "
       >
         <span uk-icon="heart"></span> Favorite
       </button>
