@@ -5,7 +5,8 @@ import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
 import Carousel from "../../components/Carousel";
 import CarouselCard from "../../components/CarouselCard";
-import ComingSoonCarouselCard from "../../components/ComingSoonCarouselCard"
+import ComingSoonCarouselCard from "../../components/ComingSoonCarouselCard";
+import WelcomeBanner from "../../components/WelcomeBanner";
 
 function Home() {
   const { user, logout } = useAuth();
@@ -57,6 +58,7 @@ function Home() {
 
   return (
     <div className="App">
+      <WelcomeBanner/>
       <h1>Trending Games</h1>
       <Carousel>
         {trendingGamesResults.map((game) => (
@@ -81,7 +83,7 @@ function Home() {
           />
         ))}
       </Carousel>
-      <h1>Coming Soon</h1>
+      <h1>Coming Soon Games</h1>
       <Carousel>
         {comingSoonGamesResults.map((game) => (
           <ComingSoonCarouselCard

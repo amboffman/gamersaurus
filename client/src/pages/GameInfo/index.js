@@ -5,6 +5,7 @@ import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
 import GameBanner from "../../components/GameBanner";
 import MediaContainer from "../../components/MediaContainer";
+import VideoTrailer from "../../components/VideoTrailer";
 import Modal from "../../components/Modal";
 import "./style.css";
 import SimilarResults from "../../components/SimilarResults";
@@ -28,7 +29,7 @@ function GameInfo() {
     API.getUser(user.id).then((res) => {
       const favorites = res.data.favorites;
       for (let i = 0; i < favorites.length; i += 1) {
-        if (favorites[i].id === game.gameId) {
+        if (favorites[i].id === game.id) {
           setFavorited(true);
         }
       }
@@ -72,10 +73,7 @@ function GameInfo() {
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
   return (
     <div className="GameInfo">
-      <span id="closeButton">
-        <Link to="/">✖</Link>
-      </span>
-      <div className="">
+      <div className="uk-container">
         <img className="uk-align-center" id="coverImage" src={image} />
         <GameBanner
           button={favButton}
@@ -92,9 +90,12 @@ function GameInfo() {
             <li>
               <a href="#">MEDIA</a>
             </li>
+            <li>
+              <a href="#">TRAILER</a>
+            </li>
           </ul>
 
-          <ul id="tabs" className="uk-switcher uk-margin">
+          <ul id="tabs" className="uk-switcher uk-margin uk-slideshow">
             <li>
               <InfoCard
                 summary={game.summary}
@@ -106,6 +107,9 @@ function GameInfo() {
 
             <li>
               <MediaContainer screenshots={game.screenshots} name={game.name} />
+            </li>
+            <li>
+              <VideoTrailer />
             </li>
           </ul>
         </div>

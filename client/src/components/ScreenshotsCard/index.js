@@ -1,15 +1,14 @@
-import React from 'react'
+import React from 'react';
+import "./style.css";
 
 function ScreenshotsCard(props) {
    const screenshot = `https://images.igdb.com/igdb/image/upload/t_screenshot_big/${props.imageId}.jpg`
     return (
-        <li>
             <div className="uk-card uk-card-default">
-                <div className="uk-card-media-top">
+                <div className="uk-card-media-top screenshot">
                     <img src={screenshot} alt="name"/> 
                 </div>
             </div>
-        </li>
     )
 }
 

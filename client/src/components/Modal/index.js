@@ -10,21 +10,34 @@ export default function index(props) {
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Opps</ModalHeader>
+        <ModalHeader toggle={toggle}>Oops...</ModalHeader>
         <ModalBody>
-          You need to be signed in to add this game to your favorites. Please
-          login or signup to access this feature.
+          <div className="row">
+            <div className="col">
+              <p>
+                You need to be signed in to add this game to your favorites.
+                Please login or signup to access this feature.
+              </p>
+            </div>
+          </div>
+          <br/>
+          <div className="row container">
+            <div className="col-4">
+              <p >
+                <Link className="links" to="/signup">Sign up!</Link>
+              </p>
+            </div>
+            <div className="col-4">
+              <p >
+                <Link className="links" to="/login">Log in!</Link>
+              </p>
+            </div>
+            <div className="col-4">
+              <p className="links" onClick={toggle}>Close</p>
+            </div>
+          </div>
         </ModalBody>
-        <ModalFooter>
-          <span>
-            <Link to="/signup">Sign me up!</Link>
-          </span>
-          <span>
-            <Link to="/login">Log me in!</Link>
-          </span>
-          <Button onClick={toggle}>Do Something</Button>{" "}
-          <Button onClick={toggle}>Cancel</Button>
-        </ModalFooter>
+        <ModalFooter></ModalFooter>
       </Modal>
     </div>
   );

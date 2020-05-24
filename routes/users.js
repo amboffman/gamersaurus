@@ -31,10 +31,10 @@ router.put("/api/new_user_favorite/:id", (req, res) => {
   );
 });
 
-router.delete("/api/delete_user_favorite/:id", (req, res) => {
+router.delete("/api/delete_user_favorite/:id/:gameId", (req, res) => {
   db.User.findByIdAndUpdate(
     req.params.id,
-    { $pull: { favorites: { id: req.body.id } } },
+    { $pull: { favorites: { id: req.params.gameId } } },
     (error) => {
       if (error) {
         res.send(error);
