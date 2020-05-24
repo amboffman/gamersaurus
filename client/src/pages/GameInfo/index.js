@@ -19,7 +19,7 @@ function GameInfo() {
   let favButton;
 
   useEffect(() => {
-    API.fetchGame(id).then((response) => {
+    API.searchGame(id).then((response) => {
       setGame(response.data[0]);
     });
   }, []);
@@ -41,7 +41,7 @@ function GameInfo() {
       setFavorited(true);
       API.addUserFavorite(
         user.id,
-        game.gameId,
+        game.id,
         game.name,
         game.cover,
         game.aggregated_rating
@@ -72,10 +72,7 @@ function GameInfo() {
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
   return (
     <div className="GameInfo">
-      <span id="closeButton">
-        <Link to="/">✖</Link>
-      </span>
-      <div className="">
+      <div className="uk-container">
         <img className="uk-align-center" id="coverImage" src={image} />
         <GameBanner
           button={favButton}

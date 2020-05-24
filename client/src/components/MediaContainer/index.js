@@ -1,7 +1,6 @@
 import React from 'react'
 import MediaCarousel from "../MediaCarousel/index";
 import ScreenshotsCard from "../ScreenshotsCard/index";
-
 function MediaContainer(props) {
   let screenshots;
   if (props.screenshots) {
