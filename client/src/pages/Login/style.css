@@ -1,6 +1,19 @@
-.button {
+.btn {
   background-color: #9933ff;
   color: white;
+  margin-top: 0px;
+}
+
+.header {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-container {
+  text-align: center;
+}
+
+.form-input {
+  width: 50%;
 }
 
 #link {

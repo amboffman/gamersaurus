@@ -39,14 +39,13 @@ function Signup() {
   };
 
   return (
-    <div className="uk-container uk-align-center">
-      <h1>Signup</h1>
+    <div className="uk-container uk-align-center form-container">
+      <h1 className= "header">Sign Up</h1>
       <form onSubmit={handleFormSubmit}>
         <div className="uk-margin">
-          <label htmlFor="username">Username:</label>
           <input
-            className="uk-input"
-            placeholder="Username goes here..."
+            className="uk-input form-input"
+            placeholder="USERNAME"
             name="username"
             type="text"
             id="username"
@@ -54,10 +53,9 @@ function Signup() {
           />
         </div>
         <div className="uk-margin">
-          <label htmlFor="email">Email address:</label>
           <input
-            className="uk-input"
-            placeholder="Email goes here..."
+            className="uk-input form-input"
+            placeholder="EMAIL"
             name="email"
             type="email"
             id="email"
@@ -65,17 +63,16 @@ function Signup() {
           />
         </div>
         <div className="uk-margin">
-          <label htmlFor="pwd">Password:</label>
           <input
-            className="uk-input"
-            placeholder="Password goes here..."
+            className="uk-input form-input"
+            placeholder="PASSWORD"
             name="password"
             type="password"
             id="pwd"
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="uk-button button">
+        <button type="submit" className="uk-button btn">
           Submit
         </button>
       </form>
