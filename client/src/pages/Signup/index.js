@@ -27,7 +27,7 @@ function Signup() {
         // send them to the login page
         history.replace("/login");
       })
-      .catch((err) => alert(err));
+      .catch((err) => {});
   };
 
   const handleChange = (event) => {

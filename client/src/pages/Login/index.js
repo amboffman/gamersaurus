@@ -20,7 +20,6 @@ function Login() {
       // navigate to the profile page
       .then(() => history.push("/profile"))
       .catch(err => {
-        alert(err.response.data.message);
       });
   };
 
