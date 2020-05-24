@@ -102,6 +102,7 @@ function GameInfo() {
                 platforms={game.platforms}
                 age_ratings={game.age_ratings}
                 />
+                <h4 className= "uk-padding-large uk-padding-remove-bottom uk-padding-remove-top">Games Similar to {game.name}</h4>
                 <SimilarResults similar_games={game.similar_games}/>
             </li>
 
