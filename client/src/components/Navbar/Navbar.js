@@ -53,13 +53,16 @@ function Navbar() {
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
             <li>
-              <Link className="navbar-brand" to="/">
+              <Link className="navbar-brand dino" to="/">
                 <img src={logo} className="logo" alt="8-bit dino logo"></img>
               </Link>
             </li>
+            <li>
+              <p className= "brandName">GAMERSAURUS</p>
+            </li>
           </ul>
         </div>
-        <div className="uk-navbar-center">
+        {/* <div className="uk-navbar-center">
           <ul className="uk-navbar-nav">
             <li>
               <Link className="navbar-search" to="/search">
@@ -67,10 +70,15 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <div className="uk-navbar-right">
           <ul className="uk-navbar-nav">
+          <li>
+              <Link className="navbar-search" to="/search">
+                <span uk-icon="search"></span>
+              </Link>
+            </li>
             <li className= "uk-parent">
               <Link className="navbar-brand" to="/profile">
                 <span uk-icon="user"></span>
