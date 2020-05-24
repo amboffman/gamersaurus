@@ -15,10 +15,10 @@ export default function index(props) {
 
   switch(newRating) {
     case "":
-      ratingElement = "";
+      ratingElement = <span className="ratingComingSoon">NR</span>;
       break;
     case (props.rating.toFixed(0)):
-      ratingElement = <p className="rating uk-position-small uk-position-bottom-right">{newRating}</p>
+      ratingElement = <p className="ratingComingSoon">{newRating}</p>
       break;
     default:
       break;
@@ -30,10 +30,10 @@ export default function index(props) {
       <div className="card uk-card uk-card-default">
         <div className="uk-card-media-top">
           <img src={image} alt={props.name}></img>
+          {ratingElement}
         </div>
         <div className="comingSoonCardBody uk-card-body">
           <span className="uk-card-title">{props.name} </span>
-          {ratingElement}
           <p >{props.date ? `${releaseDate}` : ""}</p>
         </div>
       </div>
