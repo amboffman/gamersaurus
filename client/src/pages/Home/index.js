@@ -71,7 +71,7 @@ function Home() {
           />
         ))}
       </Carousel>
-      <h1>Recent Releases</h1>
+      <h1>Recent Released Games</h1>
       <Carousel>
         {recentReleaseResults.map((game) => (
           <CarouselCard

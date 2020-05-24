@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import "./style.css"
+import "./style.css"
 
 export default function gameCard(props) {
   const image = props.cover
@@ -15,7 +15,7 @@ export default function gameCard(props) {
             <img src={image} alt="placeholder"></img>
           </Link>
         </div>
-        <div className="uk-card-body">
+        <div className="cardBody uk-card-body">
           <h3 className="uk-card-title">{props.name} </h3>
           <p>{newRating}</p>
           {props.children}

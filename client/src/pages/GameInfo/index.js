@@ -8,6 +8,7 @@ import MediaContainer from "../../components/MediaContainer";
 import VideoTrailer from "../../components/VideoTrailer";
 import Modal from "../../components/Modal";
 import "./style.css";
+import SimilarResults from "../../components/SimilarResults";
 
 function GameInfo() {
   const [game, setGame] = useState({});
@@ -100,7 +101,8 @@ function GameInfo() {
                 summary={game.summary}
                 platforms={game.platforms}
                 age_ratings={game.age_ratings}
-              />
+                />
+                <SimilarResults similar_games={game.similar_games}/>
             </li>
 
             <li>

@@ -1,5 +1,5 @@
 module.exports = {
-createGamesFromIGDBData: (gameData) => {
+  createGamesFromIGDBData: (gameData) => {
     return gameData.map((game) => {
       return {
         id,
@@ -7,6 +7,7 @@ createGamesFromIGDBData: (gameData) => {
         first_release_date,
         name,
         aggregated_rating,
+        // similar_games,
       } = game;
     });
   },
@@ -26,6 +27,7 @@ createGamesFromIGDBData: (gameData) => {
         screenshots,
         summary,
         videos,
+        similar_games,
       } = game;
       return {
         age_ratings,
@@ -41,6 +43,7 @@ createGamesFromIGDBData: (gameData) => {
         screenshots,
         summary,
         videos,
+        similar_games,
       };
     });
   },

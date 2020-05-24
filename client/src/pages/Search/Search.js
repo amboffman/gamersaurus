@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import GameResults from "../../components/GameResults";
 import GameCard from "../../components/GameCard";
+import SimilarResults from "../../components/SimilarResults";
 import "./style.css";
 
 
@@ -12,14 +13,13 @@ function Search() {
 
   function handleFormSubmit(event) {
     event.preventDefault()
-    console.log("Search", searchQuery)
-    const fullSearch = `fields name, cover.image_id, aggregated_rating; limit 15; w cover != null & themes != (42); search "${searchQuery}";`
-    API.fetchGames(fullSearch).then((response) => { console.log(response); setSearchResults(response.data.map(game=>({
+    API.searchGames(searchQuery).then((response) => { console.log(response); setSearchResults(response.data.map(game=>({
       id: game.id,
       name: game.name,
       rating: game.aggregated_rating,
-      cover: game.cover.image_id
-    }))) })
+      cover: game.cover.image_id,
+      // similar: game.similar_games
+    })))})
   }
 
   return (
@@ -37,11 +37,14 @@ function Search() {
         />
         <button onClick={handleFormSubmit} type="button" className="uk-button button">Find Games</button>
       </form>
+        <h2>Search Results</h2>
       <GameResults>
         {searchResults.map((game) => (
           <GameCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} id = {game.id}/> 
         ))}
       </GameResults>
+      {/* <h2>Related Games</h2>
+      <SimilarResults searchResults = {searchResults}/> */}
     </div>
   );
 }
