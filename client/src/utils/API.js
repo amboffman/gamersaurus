@@ -35,7 +35,7 @@ export default {
     
   searchGames:(searchQuery) => {
     return axios.get("api/igdbgames", {
-      params: { q: `fields name, cover.image_id, aggregated_rating, similar_games; limit 15; w cover != null & themes != (42); search "${searchQuery}";` },
+      params: { q: `fields name, cover.image_id, aggregated_rating; limit 15; w cover != null & themes != (42); search "${searchQuery}";` },
     });
   },
   fetchTrendingGames:() => {
@@ -60,15 +60,14 @@ export default {
     });
   },
 
-  fetchSimilarGames:(sg) => {
-    const ids = sg.join(",")
+  fetchSimilarGames:(ids) => {
     return axios.get("api/igdbgames", {
       params: { q: `fields name, cover.image_id, first_release_date, aggregated_rating; where id= (${ids}) & themes != (42) & category = 0 & first_release_date != null & cover != null; limit 10;`},
     });
   },
 
   searchGame:(id) => {
-    return axios.get(`api/igdbgame/${id}`, { params: {q:`fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation;
+    return axios.get(`api/igdbgame/${id}`, { params: {q:`fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation, similar_games;
     where id=${id};`},})
   }
 };

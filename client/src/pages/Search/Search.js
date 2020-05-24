@@ -3,13 +3,13 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import GameResults from "../../components/GameResults";
 import GameCard from "../../components/GameCard";
+import SimilarResults from "../../components/SimilarResults";
 import "./style.css";
 
 
 function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [similarResults, setSimilarResults] = useState([]);
 
   function handleFormSubmit(event) {
     event.preventDefault()
@@ -18,21 +18,10 @@ function Search() {
       name: game.name,
       rating: game.aggregated_rating,
       cover: game.cover.image_id,
-      similar: game.similar_games
+      // similar: game.similar_games
     })))})
-    .then((results)=>{
-    API.fetchSimilarGames(results[0].similar)
-    .then((sg)=>{
-      setSimilarResults(sg.data.map(game=>({
-        id: game.id,
-        name: game.name,
-        rating: game.aggregated_rating,
-        cover: game.cover.image_id,
-      })))
-    })
-  })
   }
-  console.log(searchResults);
+
   return (
     <div className="uk-margin .uk-align-center App">
       <h1 className="App.header App.intro">Search</h1>
@@ -54,12 +43,8 @@ function Search() {
           <GameCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} id = {game.id}/> 
         ))}
       </GameResults>
-      <h2>Related Games</h2>
-      <GameResults>
-        {similarResults.map((game) => (
-          <GameCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} id = {game.id}/> 
-        ))}
-      </GameResults>
+      {/* <h2>Related Games</h2>
+      <SimilarResults searchResults = {searchResults}/> */}
     </div>
   );
 }

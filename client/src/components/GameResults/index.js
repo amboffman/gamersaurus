@@ -19,5 +19,3 @@ function GameResults(props) {
 }
 
 export default GameResults;
-
-//"uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center"

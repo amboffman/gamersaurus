@@ -7,7 +7,7 @@ module.exports = {
         first_release_date,
         name,
         aggregated_rating,
-        similar_games,
+        // similar_games,
       } = game;
     });
   },

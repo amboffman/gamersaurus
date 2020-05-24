@@ -7,6 +7,7 @@ import GameBanner from "../../components/GameBanner";
 import MediaContainer from "../../components/MediaContainer";
 import Modal from "../../components/Modal";
 import "./style.css";
+import SimilarResults from "../../components/SimilarResults";
 
 function GameInfo() {
   const [game, setGame] = useState({});
@@ -19,6 +20,7 @@ function GameInfo() {
 
   useEffect(() => {
     API.searchGame(id).then((response) => {
+      console.log('API CALL 1', response)
       setGame(response.data[0]);
     });
   }, []);
@@ -99,7 +101,8 @@ function GameInfo() {
                 summary={game.summary}
                 platforms={game.platforms}
                 age_ratings={game.age_ratings}
-              />
+                />
+                <SimilarResults similar_games={game.similar_games}/>
             </li>
 
             <li>
