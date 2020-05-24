@@ -9,7 +9,9 @@ function WelcomeBanner() {
         <div>
           <div id= "welcome-banner" className="uk-card uk-card-default uk-card-body">
           <img src={logo} className="gif" alt="8-bit dino logo"></img>
-              <span id= "brand-name">Gamersaurus</span>
+              <p class= "brand-name">GAMERSAURUS</p>
+              <p class= "banner-text">Discover ROARING new games</p>
+              <p class= "banner-text">based on your favorites</p>
           </div>
         </div>
       </div>
