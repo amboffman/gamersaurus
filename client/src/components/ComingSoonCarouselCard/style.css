@@ -4,10 +4,15 @@
   min-height: 120px;
 }
 
-.rating{
+.ratingComingSoon{
   padding: 1px 5px 1px 5px;
+  position: relative;
+  float: right;
+  top: -36px;
+  right: 3px;
   font-size: large;
   color: white;
   border-radius: 150px;
   background-color: #43d87d;
+  text-shadow: 0 0 3px #247041ad, 0 0 3px #1f6138ad;
 }
