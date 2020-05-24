@@ -32,9 +32,6 @@ export default function index(props) {
                 <Link className="links" to="/login">Log in!</Link>
               </p>
             </div>
-            <div className="col-4">
-              <p className="links" onClick={toggle}>Close</p>
-            </div>
           </div>
         </ModalBody>
         <ModalFooter></ModalFooter>

@@ -16,10 +16,10 @@ export default function index(props) {
 
   switch(newRating) {
     case "":
-      ratingElement = "";
+  ratingElement = <span className="rating">NR</span>;
       break;
     case (props.rating.toFixed(0)):
-      ratingElement = <p className="rating uk-position-small uk-position-bottom-right">{newRating}</p>
+      ratingElement = <span className="rating">{newRating}</span>
       break;
     default:
       break;
@@ -34,7 +34,7 @@ export default function index(props) {
           {ratingElement}
         </div>
         <div className="cardBody uk-card-body">
-          <p className="uk-card-title">{props.name} </p>
+          <p className="cardTitle">{props.name} </p>
           <p>{props.date ? `Release Date: ${releaseDate}` : ""}</p>
         </div>
       </div>
