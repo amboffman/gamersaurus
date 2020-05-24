@@ -16,8 +16,7 @@ function MediaContainer(props) {
   console.log("screenshots:", screenshots);
 
     return (
-        // <div className="uk-card uk-card-default uk-card-body uk-width-1-1">
-        <div>
+        <div className="uk-card uk-card-default uk-card-body uk-width-1-1">
             <h3 >Screenshots</h3>
             <MediaCarousel>
               {screenshots && screenshots.map((game)=> (
