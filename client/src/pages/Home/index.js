@@ -57,7 +57,7 @@ function Home() {
 
   return (
     <div className="App">
-      <h1>Trending</h1>
+      <h1>Trending Games</h1>
       <Carousel>
         {trendingGamesResults.map((game) => (
           <CarouselCard
@@ -81,7 +81,7 @@ function Home() {
           />
         ))}
       </Carousel>
-      <h1>Coming Soon</h1>
+      <h1>Coming Soon Games</h1>
       <Carousel>
         {comingSoonGamesResults.map((game) => (
           <ComingSoonCarouselCard

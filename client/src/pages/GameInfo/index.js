@@ -71,10 +71,7 @@ function GameInfo() {
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
   return (
     <div className="GameInfo">
-      <span id="closeButton">
-        <Link to="/">✖</Link>
-      </span>
-      <div className="">
+      <div className="uk-container">
         <img className="uk-align-center" id="coverImage" src={image} />
         <GameBanner
           button={favButton}

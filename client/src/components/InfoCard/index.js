@@ -5,52 +5,56 @@ export default function index(props) {
   let platforms;
   let age_ratings;
   if (props.platforms) {
-    platforms = props.platforms.map((p) => {
-      return p.abbreviation
-    }).join(", ");
+    platforms = props.platforms
+      .map((p) => {
+        return p.abbreviation;
+      })
+      .join(", ");
   }
   if (props.age_ratings) {
     age_ratings = props.age_ratings.map((ar) => {
-      switch(ar.rating){
+      switch (ar.rating) {
         case 6:
-          return "RP"
+          return "RP";
           break;
         case 7:
-          return "EC"
+          return "EC";
           break;
         case 8:
-          return "E"
+          return "E";
           break;
         case 9:
-          return "E10"
+          return "E10";
           break;
         case 10:
-          return "T"
+          return "T";
           break;
         case 11:
-          return "M"
+          return "M";
           break;
         case 12:
-          return "AO"
+          return "AO";
           break;
-          default: 
-          return
+        default:
+          return;
       }
-      return ar.rating
+      return ar.rating;
     });
   }
-  
+
   return (
     <div className="uk-card uk-card-default uk-card-body uk-width-1-1">
       <h3 className="uk-card-title">Summary</h3>
       <p className="overflow-ellipsis summary"> </p>
-      <p>
-        {props.summary}
-        </p>
+      <p>{props.summary}</p>
+      <br />
+
       <p className="subCategory">Rated</p>
       <p>{age_ratings}</p>
+      <br />
+
       <p className="subCategory">Platforms</p>
-      <span>{platforms}</span>
+      <p>{platforms}</p>
     </div>
   );
 }
