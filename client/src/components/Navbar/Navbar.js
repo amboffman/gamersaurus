@@ -49,7 +49,7 @@ function NavLinks() {
 function Navbar() {
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown">
-      <nav className="uk-navbar uk-navbar-container" uk-navbar = "mode: click">
+      <nav className="uk-navbar uk-navbar-container uk-box-shadow-large" uk-navbar = "mode: click">
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
             <li>
