@@ -1,4 +1,16 @@
-.logo {
-    width: 35px;
+.brandName{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    padding-top: 25px;
 }
 
+.dino{
+    margin-right: -1rem;
+}
+
+@media screen and (min-width: 320px) {
+    .logo{
+        width:50px;
+    }
+  
+  }

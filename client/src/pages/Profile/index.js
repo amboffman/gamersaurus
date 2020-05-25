@@ -31,9 +31,18 @@ function Profile() {
   }
 
   return (
+    <>
+      <div>
+        <div className="uk-child-width-expand@s uk-text-center uk-box-shadow-large" uk-grid>
+          <div>
+            <div id="profile-banner" className="uk-card uk-card-default uk-card-body">
+              <h1 className="user-greet">HELLO {username}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
     <div className="uk-container container Profile">
-      <h1>HELLO {username}</h1>
-      <p>HERE ARE YOUR FAVORITES ♡</p>
+  <h3 className= "uk-padding-small">{favorites.length > 0 ? "HERE ARE YOUR FAVORITES ♡" : "YOUR FAVORITES ARE EMPTY"}</h3>
       <GameResults>
         {favorites.map((game) => (
           <GameCard
@@ -48,6 +57,7 @@ function Profile() {
         ))}
       </GameResults>
     </div>
+    </>
   );
 }
 

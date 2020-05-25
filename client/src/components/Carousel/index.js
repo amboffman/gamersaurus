@@ -3,9 +3,9 @@ import "./style.css";
 
 function Carousel(props) {
   return (
-    <div uk-slider="center: true">
+    <div uk-slider="center: true ">
       <div
-        className="uk-position-relative uk-visible-toggle uk-light"
+        className="uk-position-relative uk-visible-toggle uk-light uk-margin-top"
         tabindex="-1"
       >
         <ul className="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-5@m uk-grid">

@@ -37,7 +37,7 @@ function Search() {
         />
         <button onClick={handleFormSubmit} type="button" className="uk-button button">Find Games</button>
       </form>
-        <h2>Search Results</h2>
+        <h2>{searchResults.length > 0 ? "SEARCH RESULTS" : ""}</h2>
       <GameResults>
         {searchResults.map((game) => (
           <GameCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} id = {game.id}/> 

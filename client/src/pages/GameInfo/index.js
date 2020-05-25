@@ -74,7 +74,7 @@ function GameInfo() {
   return (
     <div className="GameInfo">
       <div className="uk-container">
-        <img className="uk-align-center" id="coverImage" src={image} />
+        <img className="uk-align-center uk-img" id="coverImage" src={image} />
         <GameBanner
           button={favButton}
           name={game.name}
@@ -90,9 +90,9 @@ function GameInfo() {
             <li>
               <a href="#">MEDIA</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">TRAILER</a>
-            </li>
+            </li> */}
           </ul>
 
           <ul id="tabs" className="uk-switcher uk-margin uk-slideshow">
@@ -102,15 +102,16 @@ function GameInfo() {
                 platforms={game.platforms}
                 age_ratings={game.age_ratings}
                 />
+                <h4 className= "uk-padding-large uk-padding-remove-bottom uk-padding-remove-top similar-style">Games Similar to {game.name}</h4>
                 <SimilarResults similar_games={game.similar_games}/>
             </li>
 
             <li>
               <MediaContainer screenshots={game.screenshots} name={game.name} />
             </li>
-            <li>
+            {/* <li>
               <VideoTrailer />
-            </li>
+            </li> */}
           </ul>
         </div>
         <Modal
