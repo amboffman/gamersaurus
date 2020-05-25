@@ -43,7 +43,7 @@ export default function index(props) {
   }
 
   return (
-    <div className="uk-card uk-card-default uk-card-body uk-width-1-1">
+    <div className="uk-card uk-card-default uk-card-body uk-width-1-1 summary-card">
       <h3 className="uk-card-title">Summary</h3>
       <p className="overflow-ellipsis summary"> </p>
       <p>{props.summary}</p>
