@@ -8,8 +8,8 @@ export default function gameCard(props) {
     : "";
   const newRating = props.rating ? props.rating.toFixed(0) : "NA";
   return (
-    <span>
-      <div className="uk-card uk-card-default">
+    <li>
+      <div className="uk-card uk-card-default uk-box-shadow-hover-xlarge">
         <div className="uk-card-media-top">
           <Link to={"/" + props.id}>
             <img src={image} alt="placeholder"></img>
@@ -21,6 +21,6 @@ export default function gameCard(props) {
           {props.children}
         </div>
       </div>
-    </span>
+    </li>
   );
 }
