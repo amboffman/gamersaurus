@@ -90,9 +90,9 @@ function GameInfo() {
             <li>
               <a href="#">MEDIA</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">TRAILER</a>
-            </li>
+            </li> */}
           </ul>
 
           <ul id="tabs" className="uk-switcher uk-margin uk-slideshow">
@@ -109,9 +109,9 @@ function GameInfo() {
             <li>
               <MediaContainer screenshots={game.screenshots} name={game.name} />
             </li>
-            <li>
+            {/* <li>
               <VideoTrailer />
-            </li>
+            </li> */}
           </ul>
         </div>
         <Modal
