@@ -42,7 +42,7 @@ function Profile() {
         </div>
       </div>
     <div className="uk-container container Profile">
-      <h3 className= "uk-padding-small">HERE ARE YOUR FAVORITES ♡</h3>
+  <h3 className= "uk-padding-small">{favorites.length > 0 ? "HERE ARE YOUR FAVORITES ♡" : "YOUR FAVORITES ARE EMPTY"}</h3>
       <GameResults>
         {favorites.map((game) => (
           <GameCard
