@@ -96,7 +96,7 @@ function GameInfo() {
           </ul>
 
           <ul id="tabs" className="uk-switcher uk-margin uk-slideshow">
-            <li>
+            <li className="uk-active">
               <InfoCard
                 summary={game.summary}
                 platforms={game.platforms}
