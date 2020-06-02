@@ -13,29 +13,28 @@ function Search() {
 
   function handleFormSubmit(event) {
     event.preventDefault()
-    API.searchGames(searchQuery).then((response) => { console.log(response); setSearchResults(response.data.map(game=>({
+    API.searchGames(searchQuery).then((response) => { setSearchResults(response.data.map(game=>({
       id: game.id,
       name: game.name,
       rating: game.aggregated_rating,
       cover: game.cover.image_id,
-      // similar: game.similar_games
     })))})
   }
 
   return (
     <div className="uk-margin .uk-align-center App">
       <h1 className="App.header App.intro">Search</h1>
-      <form className="uk-search uk-search-default">
+      <form className="uk-search uk-search-default"         onSubmit={handleFormSubmit}>
         <span uk-search-icon></span>
         <input
           className="uk-search-input"
-          name="search"
           type="text"
           placeholder="Search"
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
         />
-        <button onClick={handleFormSubmit} type="button" className="uk-button button">Find Games</button>
+        <button
+type="submit" className="uk-button button">Find Games</button>
       </form>
         <h2>{searchResults.length > 0 ? "SEARCH RESULTS" : ""}</h2>
       <GameResults>
@@ -43,8 +42,6 @@ function Search() {
           <GameCard key = {game.id} cover = {game.cover} name = {game.name} rating = {game.rating} id = {game.id}/> 
         ))}
       </GameResults>
-      {/* <h2>Related Games</h2>
-      <SimilarResults searchResults = {searchResults}/> */}
     </div>
   );
 }
