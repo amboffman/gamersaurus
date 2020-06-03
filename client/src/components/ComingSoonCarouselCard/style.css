@@ -1,18 +1,31 @@
+.card{
+  min-height: 457px;
+
+}
 .comingSoonCardBody {
+  width: 264px;
   padding: 5px 5px 5px 5px;
-  max-height: 120px;
-  min-height: 120px;
 }
 
 .ratingComingSoon{
   padding: 1px 5px 1px 5px;
   position: relative;
   float: right;
-  top: -36px;
+  top: 320px;
   right: 3px;
   font-size: large;
   color: white;
   border-radius: 150px;
   background-color: #43d87d;
   text-shadow: 0 0 3px #247041ad, 0 0 3px #1f6138ad;
+}
+
+.coverImageContainer {
+  max-height: 352px;
+  min-height: 352px;
+}
+
+.coverImage {
+  height: 352px;
+  width: 264px;
 }
