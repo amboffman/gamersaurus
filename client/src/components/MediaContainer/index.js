@@ -5,7 +5,6 @@ import "./style.css"
 function MediaContainer(props) {
   let screenshots;
   if (props.screenshots) {
-    console.log("props", props.screenshots);
     screenshots = props.screenshots.map((g) => {
      return( {
        id: g.id,
@@ -13,7 +12,6 @@ function MediaContainer(props) {
      }) 
     });
   }
-  console.log("screenshots:", screenshots);
 
     return (
         <div className="uk-card uk-card-default uk-card-body uk-width-1-1">

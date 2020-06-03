@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
 import GameBanner from "../../components/GameBanner";
@@ -18,12 +18,12 @@ function GameInfo() {
   const { id } = useParams();
   const { user } = useAuth();
   let favButton;
-
+  const location = useLocation();
   useEffect(() => {
     API.searchGame(id).then((response) => {
       setGame(response.data[0]);
     });
-  }, []);
+  }, [location]);
 
   if (user) {
     API.getUser(user.id).then((res) => {
@@ -90,9 +90,6 @@ function GameInfo() {
             <li>
               <a href="#">MEDIA</a>
             </li>
-            {/* <li>
-              <a href="#">TRAILER</a>
-            </li> */}
           </ul>
 
           <ul id="tabs" className="uk-switcher uk-margin uk-slideshow">
@@ -109,9 +106,6 @@ function GameInfo() {
             <li>
               <MediaContainer screenshots={game.screenshots} name={game.name} />
             </li>
-            {/* <li>
-              <VideoTrailer />
-            </li> */}
           </ul>
         </div>
         <Modal
