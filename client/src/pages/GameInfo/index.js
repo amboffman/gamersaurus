@@ -22,6 +22,7 @@ function GameInfo() {
   useEffect(() => {
     API.searchGame(id).then((response) => {
       setGame(response.data[0]);
+      window.scrollTo(0, 0);
     });
   }, [location]);
 
