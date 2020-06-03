@@ -6,7 +6,7 @@
   padding: 1px 5px 1px 5px;
   position: relative;
   float: right;
-  top: -33px;
+  top: 320px;
   right: 3px;
   font-size: large;
   color: white;
@@ -18,10 +18,25 @@
 .cardTitle{
   padding-top: 1px;
   font-family: 'Quicksand', sans-serif;
+  font-size: large;
+}
+
+.coverImageContainer {
+  max-height: 352px;
+  min-height: 352px;
+}
+
+.coverImage {
+  height: 352px;
+  width: 264px;
 }
 
 .cardBody {
+  width: 264px;
   padding: 5px 5px 5px 5px;
-  max-height: 100px;
-  min-height: 100px;
+}
+
+@media screen and (min-width: 1669px) {
+
+  
 }
