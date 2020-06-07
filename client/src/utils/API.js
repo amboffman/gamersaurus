@@ -7,6 +7,7 @@ export default {
   getUser: (id) => {
     return axios.get(`/api/user/${id}`);
   },
+
   // sign up a user to our service
   signUpUser: (username, email, password) => {
     return axios.post("/api/signup", {
@@ -15,6 +16,7 @@ export default {
       password: password,
     });
   },
+
   // add new user favorite
   addUserFavorite: (userID, id, name, cover, aggregated_rating) => {
     return axios.put(`/api/new_user_favorite/${userID}`, {
@@ -24,6 +26,10 @@ export default {
       cover: cover,
       aggregated_rating: aggregated_rating,
     });
+  },
+
+  shareUserFavorites: (userName) => {
+    return axios.get(`/api/share_user_favorites/${userName}`)
   },
 
   // remove user favorite
@@ -36,6 +42,7 @@ export default {
       params: { q: `fields name, cover.image_id, aggregated_rating; limit 15; w cover != null & themes != (42); search "${searchQuery}";` },
     });
   },
+
   fetchTrendingGames:() => {
     return axios.get("api/igdbgames", {
       params: { q: `
