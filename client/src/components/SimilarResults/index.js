@@ -36,7 +36,7 @@ if(similarGames){
                 className="uk-position-relative uk-visible-toggle uk-light"
                 tabindex="-1"
             >
-                <ul className="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-5@m uk-grid">
+                <ul className="uk-slider-items uk-child-width-auto uk-grid">
                     {similar}
                 </ul>
             </div>
