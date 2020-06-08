@@ -41,7 +41,7 @@ export default {
       params: { q: `
       fields name, cover.image_id, aggregated_rating, category; limit 10; 
       where first_release_date < ${currentDate} & first_release_date > ${
-        currentDate - 7889229
+        currentDate - 5184000
       } & cover != null & themes != (42) & category = 0; sort popularity desc;` },
     });
   },
