@@ -61,11 +61,7 @@ function GameInfo() {
     );
   } else {
     favButton = (
-      <button
-        onClick={addFavorite}
-        id="favoriteBtn"
-        className="uk-button "
-      >
+      <button onClick={addFavorite} id="favoriteBtn" className="uk-button ">
         <span uk-icon="heart"></span> Favorite
       </button>
     );
@@ -88,9 +84,6 @@ function GameInfo() {
             <li>
               <a href="#">ABOUT</a>
             </li>
-            <li>
-              <a href="#">MEDIA</a>
-            </li>
           </ul>
 
           <ul id="tabs" className="uk-switcher uk-margin uk-slideshow">
@@ -99,15 +92,15 @@ function GameInfo() {
                 summary={game.summary}
                 platforms={game.platforms}
                 age_ratings={game.age_ratings}
-                />
-                <h4 className= "uk-padding-large uk-padding-remove-bottom uk-padding-remove-top similar-style">Games Similar to {game.name}</h4>
-                <SimilarResults similar_games={game.similar_games}/>
-            </li>
-
-            <li>
-              <MediaContainer screenshots={game.screenshots} name={game.name} />
+              />
             </li>
           </ul>
+
+          <MediaContainer screenshots={game.screenshots} name={game.name} />
+          <h4 className="uk-padding-large uk-padding-remove-bottom  similar-style">
+            Games Similar to {game.name}
+          </h4>
+          <SimilarResults similar_games={game.similar_games} />
         </div>
         <Modal
           toggle={toggle}

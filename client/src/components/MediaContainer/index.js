@@ -14,7 +14,7 @@ function MediaContainer(props) {
   }
 
     return (
-        <div className="uk-card uk-card-default uk-card-body uk-width-1-1">
+        <div id="media" className="uk-card  uk-card-body uk-width-auto">
             <h3 >Screenshots</h3>
             <MediaCarousel>
               {screenshots && screenshots.map((game)=> (

@@ -16,7 +16,7 @@ export default function index(props) {
 
   switch(newRating) {
     case "":
-  ratingElement = <span className="rating">NR</span>;
+      ratingElement = <span className="rating">NR</span>;
       break;
     case (props.rating.toFixed(0)):
       ratingElement = <span className="rating">{newRating}</span>

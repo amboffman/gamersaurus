@@ -10,18 +10,16 @@ export default function gameCard(props) {
   return (
     <li>
       <div className="card uk-card uk-card-default uk-box-shadow-hover-xlarge">
-        <Link to={"/" + props.id}>
-          <div className="coverImageContainer uk-card-media-top">
+        <div className="coverImageContainer uk-card-media-top">
+          <Link to={"/" + props.id}>
             <img
               className="coverImage uk-position-top-center"
               src={image}
               alt={props.name}
-            />
-
+            ></img>
             <span className="rating">{newRating}</span>
-          </div>
-        </Link>
-
+          </Link>
+        </div>
         <div className="cardBody uk-card-body">
           <p className="cardTitle">{props.name} </p>
           {props.children}
