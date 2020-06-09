@@ -27,9 +27,7 @@ Users will be redirected to details about the game that they click on, such as a
 
 Users are also able to favorite a game when logged in to add to their collections!
 
-<img src="imgs/game-info.png" width="225" height="400"/>
-<img src="imgs/about.png" width="225" height="400"/>
-<img src="imgs/media.png" width="225" height="400"/>
+<img src="imgs/game-info.png" width="200" height="400"/> <img src="imgs/about.png" width="200" height="400"/> <img src="imgs/media.png" width="200" height="400"/>  
 
 Users can view their collections and choose to remove a game from their favorites
 
@@ -48,6 +46,6 @@ If you have any questions about the repo or would like to report a bug, open an 
 | Contributors       | Email         | Contributors       | Email         |
 | ------------- |:-------------:| ------------- |:-------------:|
 | [<img src="https://avatars1.githubusercontent.com/u/60618427?v=4" alt="avatar" style="border-radius: 75px" width="75"/>](https://https://github.com/amboffman)        | amarrokalboffman@gmail.com | [<img src="https://avatars0.githubusercontent.com/u/48847969?v=4" alt="avatar" style="border-radius: 75px" width="75"/>](https://https://github.com/mcerrillo1)  | mcerrillojr13@gmail.com |
-| [<img src="https://avatars1.githubusercontent.com/u/56857948?v=4" alt="avatar" style="border-radius: 75px" width="75"/>](https://https://github.com/Samwise2980)  | samuelfoster0@gmail.com | [<img src="https://avatars2.githubusercontent.com/u/60867374?v=4" alt="avatar" style="border-radius: 75px" width="75"/>](https://https://github.com/sylhuynh)   | shuynh76@gmail.com |
+| [<img src="https://avatars1.githubusercontent.com/u/56857948?v=4" alt="avatar" style="border-radius: 75px" width="75"/>](https://https://github.com/Samwise2980)  | samuelfoster0@gmail.com | [<img src="https://avatars2.githubusercontent.com/u/60867374?v=4" alt="avatar" style="border-radius: 75px" width="75"/>](https://https://github.com/sylhuynh)   | sylhuynh76@gmail.com |
 
 
