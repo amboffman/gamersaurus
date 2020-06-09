@@ -60,11 +60,7 @@ function Profile() {
           You can share your favorites list with your friends by sending them
           this link.
         </p>
-        {/* <a href="https://gamersaurus.herokuapp.com/favorites/{username}">Share Your Favorites List</a> */}
-        {/* <a href={"http://localhost:3000/favorites/" + username}>
-          Share Your Favorites List
-        </a> */}
-        <Link to={"/favorites/" + username}>Share Your Favorites List</Link>
+        {/* <Link to={"/favorites/" + username}>Share Your Favorites List</Link> */}
         <GameResults>
           {favorites.map((game) => (
             <GameCard
