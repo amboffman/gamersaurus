@@ -19,8 +19,7 @@ Gamersaurus was created to run in the browser with a **mobile responsive design*
 **Gamersaurus can be found at: https://gamersaurus.herokuapp.com/**
 
 ## Usage
-Usage
-
+![Home Page](imgs/homepage.jpg)
 
 ## Questions
 If you have any questions about the repo, open an issue or contact the team directly at:
