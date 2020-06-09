@@ -56,10 +56,10 @@ function Profile() {
             ? `HERE ARE YOUR FAVORITES ♡`
             : "YOUR FAVORITES ARE EMPTY"}
         </h3>
-        <p>
+        {/* <p>
           You can share your favorites list with your friends by sending them
           this link.
-        </p>
+        </p> */}
         {/* <Link to={"/favorites/" + username}>Share Your Favorites List</Link> */}
         <GameResults>
           {favorites.map((game) => (
