@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import GameResults from "../../components/GameResults";
 import GameCard from "../../components/GameCard";
@@ -60,9 +61,10 @@ function Profile() {
           this link.
         </p>
         {/* <a href="https://gamersaurus.herokuapp.com/favorites/{username}">Share Your Favorites List</a> */}
-        <a href={"http://localhost:3000/favorites/" + username}>
+        {/* <a href={"http://localhost:3000/favorites/" + username}>
           Share Your Favorites List
-        </a>
+        </a> */}
+        <Link to={"/favorites/" + username}>Share Your Favorites List</Link>
         <GameResults>
           {favorites.map((game) => (
             <GameCard

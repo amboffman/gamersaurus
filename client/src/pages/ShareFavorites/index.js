@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import { useParams } from "react-router-dom";
-import Carousel from "../../components/Carousel"
+import Carousel from "../../components/Carousel";
 import GameResults from "../../components/GameResults";
 import GameCard from "../../components/GameCard";
 import "./style.css";
