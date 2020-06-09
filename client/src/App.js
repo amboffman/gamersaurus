@@ -49,9 +49,9 @@ function App() {
           <ProtectedRoute path="/profile">
             <Profile />
           </ProtectedRoute>
-          <Route exact path="/favorites/:userName">
+          {/* <Route exact path="/favorites/:userName">
             <ShareFavorites />
-          </Route>
+          </Route> */}
           <Route path="/:id">
             <GameInfo />
           </Route>
