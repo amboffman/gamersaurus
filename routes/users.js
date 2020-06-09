@@ -45,4 +45,17 @@ router.delete("/api/delete_user_favorite/:id/:gameId", (req, res) => {
   );
 });
 
+router.get("/api/share_user_favorites/:userName", (req, res) => {
+  const userName = req.params.userName;
+  db.User.find({ username: userName })
+    .then((data) => {
+      if (data) {
+        res.json(data[0].favorites);
+      } else {
+        res.status(404).send({ success: false, message: "No user found" });
+      }
+    })
+    .catch((err) => res.status(400).send(err));
+});
+
 module.exports = router;

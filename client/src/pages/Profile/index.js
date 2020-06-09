@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import GameResults from "../../components/GameResults";
 import GameCard from "../../components/GameCard";
@@ -23,6 +24,8 @@ function Profile() {
   function removeFavorite(event) {
     const userId = user.id;
     const gameId = event.target.getAttribute("data-id");
+    const shareFavoritesLink = ``;
+
     API.removeUserFavorite(userId, gameId).then((res) => {
       API.getUser(user.id).then((res) => {
         setFavorites(res.data.favorites);
@@ -33,30 +36,49 @@ function Profile() {
   return (
     <>
       <div>
-        <div className="uk-child-width-expand@s uk-text-center uk-box-shadow-large" uk-grid>
+        <div
+          className="uk-child-width-expand@s uk-text-center uk-box-shadow-large"
+          uk-grid
+        >
           <div>
-            <div id="profile-banner" className="uk-card uk-card-default uk-card-body">
-              <h1 className="user-greet">HELLO {username}</h1>
+            <div
+              id="profile-banner"
+              className="uk-card uk-card-default uk-card-body"
+            >
+              <h1 className="user-greet">Hello, {username}!</h1>
             </div>
           </div>
         </div>
       </div>
-    <div className="uk-container container Profile">
-  <h3 className= "uk-padding-small">{favorites.length > 0 ? "HERE ARE YOUR FAVORITES ♡" : "YOUR FAVORITES ARE EMPTY"}</h3>
-      <GameResults>
-        {favorites.map((game) => (
-          <GameCard
-            id={game.id}
-            key={game.id}
-            cover={game.cover}
-            name={game.name}
-            rating={game.aggregated_rating}
-          >
-            <DeleteButton id={game.id} onClick={removeFavorite} />
-          </GameCard>
-        ))}
-      </GameResults>
-    </div>
+      <div className="uk-container Profile">
+        <h3 className="uk-padding-small">
+          {favorites.length > 0
+            ? `HERE ARE YOUR FAVORITES ♡`
+            : "YOUR FAVORITES ARE EMPTY"}
+        </h3>
+        <p>
+          You can share your favorites list with your friends by sending them
+          this link.
+        </p>
+        {/* <a href="https://gamersaurus.herokuapp.com/favorites/{username}">Share Your Favorites List</a> */}
+        {/* <a href={"http://localhost:3000/favorites/" + username}>
+          Share Your Favorites List
+        </a> */}
+        <Link to={"/favorites/" + username}>Share Your Favorites List</Link>
+        <GameResults>
+          {favorites.map((game) => (
+            <GameCard
+              id={game.id}
+              key={game.id}
+              cover={game.cover}
+              name={game.name}
+              rating={game.aggregated_rating}
+            >
+              <DeleteButton id={game.id} onClick={removeFavorite} />
+            </GameCard>
+          ))}
+        </GameResults>
+      </div>
     </>
   );
 }

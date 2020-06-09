@@ -9,22 +9,22 @@ export default function gameCard(props) {
   const newRating = props.rating ? props.rating.toFixed(0) : "NA";
   return (
     <li>
-      <Link to={"/" + props.id}>
-        <div className="card uk-card uk-card-default uk-box-shadow-hover-xlarge">
-          <div className="coverImageContainer uk-card-media-top">
+      <div className="card uk-card uk-card-default uk-box-shadow-hover-xlarge">
+        <div className="coverImageContainer uk-card-media-top">
+          <Link to={"/" + props.id}>
             <img
               className="coverImage uk-position-top-center"
               src={image}
               alt={props.name}
             ></img>
             <span className="rating">{newRating}</span>
-          </div>
-          <div className="cardBody uk-card-body">
-            <p className="cardTitle">{props.name} </p>
-            {props.children}
-          </div>
+          </Link>
         </div>
-      </Link>
+        <div className="cardBody uk-card-body">
+          <p className="cardTitle">{props.name} </p>
+          {props.children}
+        </div>
+      </div>
     </li>
   );
 }

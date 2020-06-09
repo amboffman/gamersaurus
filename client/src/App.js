@@ -8,6 +8,7 @@ import {
 
 // Our Components
 import { AuthProvider, useAuth } from "./utils/auth";
+import ShareFavorites from "./pages/ShareFavorites";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
@@ -26,33 +27,37 @@ function ProtectedRoute({ children, ...rest }) {
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/search">
-              <Search />
-            </Route>
-            <ProtectedRoute exact path="/profile">
-              <Profile />
-            </ProtectedRoute>
-            <Route exact path="/:id">
-              <GameInfo />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <AuthProvider>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <ProtectedRoute path="/profile">
+            <Profile />
+          </ProtectedRoute>
+          <Route exact path="/favorites/:userName">
+            <ShareFavorites />
+          </Route>
+          <Route path="/:id">
+            <GameInfo />
+          </Route>
+        </Switch>
+      </AuthProvider>
+    </Router>
   );
 }
 
