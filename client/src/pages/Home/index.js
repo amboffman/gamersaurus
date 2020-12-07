@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import "./home.css";
-import { useAuth } from "../../utils/auth";
 import API from "../../utils/API";
 import Carousel from "../../components/Carousel";
 import CarouselCard from "../../components/CarouselCard";
@@ -9,10 +7,6 @@ import ComingSoonCarouselCard from "../../components/ComingSoonCarouselCard";
 import WelcomeBanner from "../../components/WelcomeBanner";
 
 function Home() {
-  const { user, logout } = useAuth();
-  const history = useHistory();
-
-  const goToEditProfile = () => history.push("/profile");
 
   const [trendingGamesResults, setTrendingGamesResults] = useState([]);
   const [comingSoonGamesResults, setComingSoonGamesResults] = useState([]);
