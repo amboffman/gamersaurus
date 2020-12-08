@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import GameResults from "../../components/GameResults";
 import GameCard from "../../components/GameCard";
@@ -24,6 +24,7 @@ function Profile() {
   function removeFavorite(event) {
     const userId = user.id;
     const gameId = event.target.getAttribute("data-id");
+    const shareFavoritesLink = ``;
 
     API.removeUserFavorite(userId, gameId).then((res) => {
       API.getUser(user.id).then((res) => {

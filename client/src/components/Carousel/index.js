@@ -6,7 +6,7 @@ function Carousel(props) {
     <div uk-slider="center: true ">
       <div
         className="uk-position-relative uk-visible-toggle uk-light uk-margin-top"
-        tabIndex="-1"
+        tabindex="-1"
       >
         <ul className="uk-slider-items uk-child-width-auto uk-grid">
           {props.children}
