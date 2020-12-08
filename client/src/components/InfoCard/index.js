@@ -16,21 +16,29 @@ export default function index(props) {
       switch (ar.rating) {
         case 6:
           return "RP";
+          break;
         case 7:
           return "EC";
+          break;
         case 8:
           return "E";
+          break;
         case 9:
           return "E10";
+          break;
         case 10:
           return "T";
+          break;
         case 11:
           return "M";
+          break;
         case 12:
           return "AO";
+          break;
         default:
-          return ar.rating;
+          return;
       }
+      return ar.rating;
     });
   }
 

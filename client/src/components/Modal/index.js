@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "./style.css";
 
 export default function index(props) {
-  const { className, modal, toggle } = props;
+  const { buttonLabel, className, modal, toggle } = props;
 
   return (
     <div>

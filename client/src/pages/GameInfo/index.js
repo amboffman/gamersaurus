@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
-import { useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import InfoCard from "../../components/InfoCard";
 import GameBanner from "../../components/GameBanner";
 import MediaContainer from "../../components/MediaContainer";
+import VideoTrailer from "../../components/VideoTrailer";
 import Modal from "../../components/Modal";
 import "./style.css";
 import SimilarResults from "../../components/SimilarResults";
@@ -23,7 +24,7 @@ function GameInfo() {
       setGame(response.data[0]);
       window.scrollTo(0, 0);
     });
-  }, [location, id]);
+  }, [location]);
 
   if (user) {
     API.getUser(user.id).then((res) => {
@@ -70,7 +71,7 @@ function GameInfo() {
   return (
     <div className="GameInfo">
       <div className="uk-container">
-        <img className="uk-align-center uk-img" id="coverImage" src={image} alt={`${game.name} cover`}/>
+        <img className="uk-align-center uk-img" id="coverImage" src={image} />
         <GameBanner
           button={favButton}
           name={game.name}
@@ -81,7 +82,7 @@ function GameInfo() {
         <div className="uk-container uk-align-center">
           <ul className="uk-tab" data-uk-tab="{connect: '#tabs'}">
             <li>
-              <a href="/#">ABOUT</a>
+              <a href="#">ABOUT</a>
             </li>
           </ul>
 
