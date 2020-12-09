@@ -43,22 +43,31 @@ router.get("/igdbgames", (req, res) => {
 
 router.get("/igdbgame/:id", (req, res) => {
   return axios({
-    url: "https://api.igdb.com/v4/games",
+    url: `https://id.twitch.tv/oauth2/token?client_id=${process.env.Client_ID}&client_secret=${process.env.Client_Secret}&grant_type=client_credentials`,
     method: "POST",
     headers: {
       Accept: "application/json",
-      // "user-key": process.env.API_Key,
-      "Client-ID": process.env.Client_ID,
-      Authorization: process.env.Authorization,
     },
-    data: req.query.q,
   })
-    .then((response) => {
-      return response.data;
-    })
-    .then((gameData) => {
-      const games = IGDBAPI.createGameFromIGDBData(gameData);
-      return res.json(games);
+    .then((results) => {
+      return axios({
+        url: "https://api.igdb.com/v4/games",
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          // "user-key": process.env.API_Key,
+          "Client-ID": process.env.Client_ID,
+          Authorization: `Bearer ${results.data.access_token}`,
+        },
+        data: req.query.q,
+      })
+        .then((response) => {
+          return response.data;
+        })
+        .then((gameData) => {
+          const games = IGDBAPI.createGameFromIGDBData(gameData);
+          return res.json(games);
+        })
     })
     .catch((error) => {
       // handle errors
