@@ -55,7 +55,7 @@ export default {
 
   fetchRecentReleases:() => {
     return axios.get("api/igdbgames", {
-      params: { q: `fields name, cover.image_id, aggregated_rating; limit 15; where first_release_date <= ${currentDate} & cover != null & themes != (42) & category = 0; sort first_release_date desc;`},
+      params: { q: `fields name, cover.image_id, aggregated_rating; limit 15; where first_release_date <= ${currentDate} & aggregated_rating > 10 & cover != null & themes != (42) & category = 0; sort first_release_date desc;`},
     });
   },
 
