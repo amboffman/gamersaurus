@@ -8,7 +8,7 @@ import {
 
 // Our Components
 import { AuthProvider, useAuth } from "./utils/auth";
-import ShareFavorites from "./pages/ShareFavorites";
+// import ShareFavorites from "./pages/ShareFavorites";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
