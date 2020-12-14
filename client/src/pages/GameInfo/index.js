@@ -8,9 +8,13 @@ import MediaContainer from "../../components/MediaContainer";
 import Modal from "../../components/Modal";
 import "./style.css";
 import SimilarResults from "../../components/SimilarResults";
+import CarouselPlaceholder from "../../components/CarouselPlaceholder"
+import CoverPlaceholder from "../../components/CoverPlaceholder";
+import ScreenshotPlaceholder from "../../components/ScreenshotPlaceholder";
 
 function GameInfo() {
   const [game, setGame] = useState({});
+  const [gameLoading, setGameLoading] = useState(true);
   const [favorited, setFavorited] = useState(false);
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -22,6 +26,8 @@ function GameInfo() {
     API.searchGame(id).then((response) => {
       setGame(response.data[0]);
       window.scrollTo(0, 0);
+    }).then(data => {
+      setTimeout(() => setGameLoading(false), 1500);
     });
   }, [location, id]);
 
@@ -46,7 +52,7 @@ function GameInfo() {
         game.name,
         game.cover,
         game.aggregated_rating
-      ).then(() => {});
+      ).then(() => { });
     } else {
       setModal(true);
     }
@@ -69,8 +75,8 @@ function GameInfo() {
   const image = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover}.jpg`;
   return (
     <div className="GameInfo">
-      <div className="uk-container">
-        <img className="uk-align-center uk-img" id="coverImage" src={image} alt={`${game.name} cover`}/>
+      <div className="uk-container" id="cover-image">
+        {gameLoading ? <CoverPlaceholder className="uk-align-center" style={{ marginTop: 10 }} /> : <img className="uk-align-center uk-img" id="coverImage" src={image} alt={`${game.name} cover`} />}
         <GameBanner
           button={favButton}
           name={game.name}
@@ -94,12 +100,14 @@ function GameInfo() {
               />
             </li>
           </ul>
-
-          <MediaContainer screenshots={game.screenshots} name={game.name} />
+          <div id="media" className="uk-card  uk-card-body uk-width-auto">
+            <h3 >Screenshots</h3>
+            {gameLoading ? <ScreenshotPlaceholder className="uk-width-auto" /> : <MediaContainer screenshots={game.screenshots} name={game.name} />}
+          </div>
           <h4 className="uk-padding-large uk-padding-remove-bottom  similar-style">
             Games Similar to {game.name}
           </h4>
-          <SimilarResults similar_games={game.similar_games} />
+          {gameLoading ? <CarouselPlaceholder /> : <SimilarResults similar_games={game.similar_games} />}
         </div>
         <Modal
           toggle={toggle}
