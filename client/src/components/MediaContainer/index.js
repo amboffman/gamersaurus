@@ -14,14 +14,12 @@ function MediaContainer(props) {
   }
 
     return (
-        <div id="media" className="uk-card  uk-card-body uk-width-auto">
-            <h3 >Screenshots</h3>
             <MediaCarousel>
               {screenshots && screenshots.map((game)=> (
                 <ScreenshotsCard key= {game.id} imageId = {game.imageId}/>
               ))}
             </MediaCarousel>
-        </div>
+
     )
 }
 
