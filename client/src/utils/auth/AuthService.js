@@ -2,7 +2,7 @@ import decode from "jwt-decode";
 import axios from "axios";
 export default class AuthService {
 
-    login = (email, password) => {
+    login = (email, password, cb) => {
       // Get a token
       return axios.post("api/login", {email: email, password: password})
         .then(res => {
@@ -10,6 +10,10 @@ export default class AuthService {
           this.setToken(res.data.token);
           // return the rest of the response
           return res;
+        })
+        .catch(err=>{
+          cb();
+          console.log(err)
         });
     };
 
