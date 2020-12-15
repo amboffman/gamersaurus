@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../utils/auth";
 import logo from "../../images/logo.png";
 import "./style.css";
@@ -8,9 +8,9 @@ const createLink = ({ text, to, ...rest }) => {
   const className = "nav-link";
   if (to) {
     return (
-      <Link className={className} to={to} {...rest}>
+      <NavLink className={className} to={to} {...rest} activeStyle={{ fontWeight: 'bold', color: 'purple' }}>
         {text}
-      </Link>
+      </NavLink>
     );
   }
   return (
@@ -47,9 +47,19 @@ function NavLinks() {
 }
 
 function Navbar() {
+  const url = useLocation()
+  const [active, setActive] = useState(false)
+  useEffect(() => {
+    if (url.pathname === "/signup" || url.pathname === "/login" || url.pathname === "/profile") {
+      setActive(true)
+    }
+    else {
+      setActive(false)
+    }
+  }, [url])
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown">
-      <nav className="uk-navbar uk-navbar-container uk-box-shadow-large" uk-navbar = "mode: click">
+      <nav className="uk-navbar uk-navbar-container uk-box-shadow-large" uk-navbar="mode: click">
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
             <li>
@@ -58,7 +68,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <p className= "brandName">GAMERSAURUS</p>
+              <p className="brandName">GAMERSAURUS</p>
             </li>
           </ul>
         </div>
@@ -74,18 +84,18 @@ function Navbar() {
 
         <div className="uk-navbar-right">
           <ul className="uk-navbar-nav">
-          <li>
-              <Link className="navbar-search" to="/search">
+            <li>
+              <NavLink className="navbar-search" to="/search" activeStyle={{ fontWeight: 'bold', color: 'purple' }}>
                 <span uk-icon="search"></span>
-              </Link>
+              </NavLink>
             </li>
-            <li className= "uk-parent">
-              <Link className="navbar-brand" to="/profile">
-                <span uk-icon="user"></span>
-              </Link>
+            <li className="uk-parent">
+              <NavLink className="navbar-brand" to="/profile" activeStyle={{ fontWeight: 'bold', color: 'purple' }}>
+                <span uk-icon="user" style={active ? { fontWeight: "bold", color: "purple" } : null}></span>
+              </NavLink>
               <div className="uk-navbar-dropdown">
                 <ul className="uk-nav uk-navbar-dropdown-nav">
-                  <NavLinks/>
+                  <NavLinks activeStyle={{ fontWeight: "bold", color: "purple" }} />
                 </ul>
               </div>
             </li>
