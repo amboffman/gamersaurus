@@ -27,6 +27,7 @@ module.exports = {
         screenshots,
         summary,
         videos,
+        url,
         similar_games,
       } = game;
       return {
@@ -43,6 +44,7 @@ module.exports = {
         screenshots,
         summary,
         videos,
+        url,
         similar_games,
       };
     });
