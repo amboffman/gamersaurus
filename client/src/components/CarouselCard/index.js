@@ -24,6 +24,13 @@ export default function index(props) {
     default:
       break;
   }
+  let title;
+  if(props.name.length >25){
+    title=props.name.substring(0,25) + '...'
+  }
+  else{
+    title = props.name
+  }
 
   return (
     <li>
@@ -34,7 +41,7 @@ export default function index(props) {
           {ratingElement}
         </div>
         <div className="cardBody uk-card-body">
-          <p className="cardTitle">{props.name} </p>
+          <p className="cardTitle">{title}</p>
           <p>{props.date ? `Release Date: ${releaseDate}` : ""}</p>
         </div>
       </div>
