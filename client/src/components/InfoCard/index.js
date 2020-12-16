@@ -47,6 +47,11 @@ export default function index(props) {
 
       <p className="subCategory">Platforms</p>
       <p>{platforms}</p>
+      <br />
+
+      <a href={props.url} target="_blank">
+      <p className="subCategory">Learn more</p>
+      </a>
     </div>
   );
 }

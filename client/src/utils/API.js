@@ -72,7 +72,7 @@ export default {
   },
 
   searchGame:(id) => {
-    return axios.get(`api/igdbgame/${id}`, { params: {q:`fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, aggregated_rating,age_ratings.rating, platforms.abbreviation, similar_games;
+    return axios.get(`api/igdbgame/${id}`, { params: {q:`fields cover.image_id, name, genres.name, screenshots.image_id, first_release_date, summary, url, aggregated_rating,age_ratings.rating, platforms.abbreviation, similar_games;
     where id=${id};`},})
   }
 };

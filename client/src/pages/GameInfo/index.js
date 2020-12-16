@@ -97,6 +97,7 @@ function GameInfo() {
                 summary={game.summary}
                 platforms={game.platforms}
                 age_ratings={game.age_ratings}
+                url={game.url}
               />
             </li>
           </ul>
