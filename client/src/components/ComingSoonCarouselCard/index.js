@@ -23,17 +23,24 @@ export default function index(props) {
     default:
       break;
   }
+  let title;
+  if(props.name.length >35){
+    title=props.name.substring(0,35) + '...'
+  }
+  else{
+    title = props.name
+  }
 
   return (
     <li>
       <Link to={"/" + props.id}>
-      <div className="card uk-card uk-card-default">
+      <div className="card uk-card uk-card-default uk-box-shadow-hover-xlarge">
         <div className="coverImageContainer uk-card-media-top">
           <img className="coverImage uk-position-top-center" src={image} alt={props.name}></img>
           {ratingElement}
         </div>
         <div className="comingSoonCardBody uk-card-body">
-          <span className="uk-card-title">{props.name} </span>
+          <span className="uk-card-title">{title}</span>
           <p >{props.date ? `${releaseDate}` : ""}</p>
         </div>
       </div>
