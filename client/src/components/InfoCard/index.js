@@ -49,7 +49,7 @@ export default function index(props) {
       <p>{platforms}</p>
       <br />
 
-      <a href={props.url} target="_blank">
+      <a href={props.url} target="_blank" rel="noopener noreferrer">
       <p className="subCategory">Learn more</p>
       </a>
     </div>
