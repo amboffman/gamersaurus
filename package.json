@@ -41,7 +41,7 @@
     "express": "^4.16.4",
     "express-jwt": "^5.3.3",
     "if-env": "^1.0.4",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.9.13",
     "morgan": "^1.10.0",
     "react-content-loader": "^5.1.4"
